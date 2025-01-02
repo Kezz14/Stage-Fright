@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Fright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ff4500;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+     .cart-icon {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .cart-icon i {
+            font-size: 1.5em;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px 8px;
+            font-size: 0.8em;
+        }
+
+        /* Sidebar Styles */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1001;
+            padding: 20px;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header button {
+            background-color: transparent;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .cart-total {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .cart-total button {
+            background-color: #ff4500;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-total button:hover {
+            background-color: #e63e00;
+        }
+
+        /* Header */
+        header {
+            height: 100vh;
+            background: url('https://i.imgur.com/9nDicdx.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        header a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff4500;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 2;
+        }
+
+        header a:hover {
+            background-color: #e63e00;
+        }
+
+        /* Tour Section Styling */
+.tour-section {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+}
+
+.tour-section .tour-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tour-section select {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 250px;
+  font-size: 1em;
+}
+
+.tour-section .map-container {
+  width: 100%;
+  height: 400px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tour-section .show-list {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.show-item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.show-item h3 {
+  margin-bottom: 10px;
+}
+
+.show-item p {
+  margin: 5px 0;
+}
+
+.show-item button {
+  padding: 10px 20px;
+  background-color: #ff4500;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.show-item button:hover {
+  background-color: #e64a19;
+}
+
+
+        /* Merch */
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .merch-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .merch-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .merch-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .merch-item button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .merch-item button:hover {
+            background-color: #e63e00;
+        }
+
+        /* Contact */
+        .contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .map-container {
+            height: 400px;
+            width: 100%;
+        }
+             /* Popup Modal Styles */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup-content h2 {
+            margin: 20px 0;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .popup-buttons button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .popup-buttons .continue-shopping {
+            background-color: #ff4500;
+            color: #fff;
+        }
+
+        .popup-buttons .continue-shopping:hover {
+            background-color: #e63e00;
+        }
+
+        .popup-buttons .cancel {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .popup-buttons .cancel:hover {
+            background-color: #999;
+        }
+
+        .popup-buttons .go-to-cart {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .popup-buttons .go-to-cart:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#tour">Tour</a>
+            <a href="#merch">Merch</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+    </div>
+
+      <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart">🛒</i>
+        <span id="cartCount" class="cart-badge">0</span>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <p>Your cart is empty</p>
+        </div>
+        <div class="cart-total">
+            <h3>Total: $<span id="totalPrice">0.00</span></h3>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    
+    </div>
+    
+
+    <!-- Header -->
+    <header id="home">
+        <h1>Welcome to Stage Fright</h1>
+        <p>Where Music Meets Passion</p>
+        <a href="#tour">Explore Our Tour Dates</a>
+    </header>
+
+     <!-- Tour Section -->
+<div class="tour-section" id="tour">
+  <h1 class="w3-center">Tour Dates</h1>
+  <div class="tour-container">
+    <!-- Dropdown for Country Selection -->
+    <select id="countryDropdown" onchange="updateMapAndList()" class="w3-select w3-padding w3-border">
+      <option value="">Select a country</option>
+      <option value="USA">United States</option>
+      <option value="UK">United Kingdom</option>
+      <option value="Australia">Australia</option>
+      <option value="Canada">Canada</option>
+    </select>
+
+    <!-- Map Container -->
+    <div class="map-container" id="map"></div>
+
+    <!-- Shows List -->
+    <div id="showList" class="show-list">
+      <!-- Shows will be dynamically added here -->
+    </div>
+  </div>
+</div>
+
+
+    <!-- Merch Section -->
+    <section class="merch" id="merch">
+        <h2>Merchandise</h2>
+        <div class="merch-grid">
+            <div class="merch-item">
+                <img src="https://i.imgur.com/QZtd1iG.png" alt="T-Shirt">
+                <h3>T-Shirt</h3>
+                <p>$25</p>
+                 <button onclick="addToCart('T-shirt', 20)">Add T-shirt - $20</button>
+            </div>
+            <div class="merch-item">
+                <img src="https://i.imgur.com/qgNOvFE.png?2" alt="Hoodie">
+                <h3>Hoodie</h3>
+                <p>$40</p>
+                <button onclick="addToCart('Hoodie', 40)">Add to Cart</button>
+            </div>
+            <div class="merch-item">
+                <img src="https://i.imgur.com/4fgNqeE.jpg" alt="Poster">
+                <h3>Poster</h3>
+                <p>$10</p>
+                <button onclick="addToCart('Poster', 10)">Add to Cart</button>
+            </div>
+            <div class="merch-item">
+                <img src="https://i.imgur.com/4viRZeH.png" alt="Vinyl">
+                <h3>Vinyl</h3>
+                <p>$30</p>
+                <button onclick="addToCart('Vinyl', 30)">Add to Cart</button>
+            </div>
+            <div class="merch-item">
+                <img src="https://i.imgur.com/QZtd1iG.png" alt="T-Shirt">
+                <h3>T-Shirt</h3>
+                <p>$25</p>
+                <button onclick="addToCart('T-Shirt', 25)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>We are Stage Fright, a band that thrives on bringing the best rock experience to the stage. Our mission is to create unforgettable moments with our fans through every performance!</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <ul>
+            <li>Email: stagefright@example.com</li>
+            <li>Phone: +123 456 7890</li>
+            <li>Instagram: @stagefrightmusic</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Stage Fright. All Rights Reserved.</p>
+    </footer>
+<!-- Popup Modal -->
+    <div id="popupModal" class="popup-modal">
+        <div class="popup-content">
+            <h2>Item Added to Cart!</h2>
+            <p>Your item has been successfully added to the cart.</p>
+            <div class="popup-buttons">
+                <button class="go-to-cart" onclick="goToCart()">Go to Cart</button>
+                <button class="continue-shopping" onclick="closePopup()">Continue Shopping</button>
+                <button class="cancel" onclick="closePopup()">Cancel</button>
+            </div>
+        </div>
+      </div>
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        <script>
+        // Global Cart
+        let cart = [];
+
+        // Toggle Cart Sidebar
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartCount = document.getElementById('cartCount');
+            cartSidebar.style.transform = cartSidebar.style.transform === 'translateX(100%)' ? 'translateX(0)' : 'translateX(100%)';
+            cartCount.textContent = cart.length;
+            updateCart();
+        }
+
+        // Add Item to Cart
+        function addToCart(itemName, price) {
+            const item = cart.find(i => i.name === itemName);
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({ name: itemName, price, quantity: 1 });
+            }
+            updateCart();
+            showPopup();
+        }
+
+        // Update Cart
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const totalPrice = document.getElementById('totalPrice');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                cartItems.innerHTML += `<div class="cart-item">
+                                          <span>${item.name}</span>
+                                          <span>x${item.quantity}</span>
+                                          <span>$${item.price * item.quantity}</span>
+                                      </div>`;
+            });
+            totalPrice.textContent = total.toFixed(2);
+        }
+
+        // Checkout Function
+        function checkout() {
+            alert("Proceeding to checkout!");
+        }
+
+        // Show Popup Modal
+        function showPopup() {
+            document.getElementById('popupModal').style.display = 'flex';
+        }
+
+        // Close Popup Modal
+        function closePopup() {
+            document.getElementById('popupModal').style.display = 'none';
+        }
+
+        // Go to Cart from Popup
+        function goToCart() {
+            toggleCart();
+            closePopup();
+        }
+
+        // Initialize Map and List (for Tour Section)
+        function updateMapAndList() {
+            const locationSelect = document.getElementById('locationSelect');
+            const selectedLocation = locationSelect.value;
+            const tourList = document.getElementById('tourList');
+            const locations = {
+                "new-york": {
+                    name: "New York",
+                    description: "Come see us in the heart of New York City.",
+                    lat: 40.7128,
+                    lon: -74.0060
+                },
+                "los-angeles": {
+                    name: "Los Angeles",
+                    description: "Join us for a show in sunny Los Angeles.",
+                    lat: 34.0522,
+                    lon: -118.2437
+                },
+                "chicago": {
+                    name: "Chicago",
+                    description: "We can't wait to see you in Chicago!",
+                    lat: 41.8781,
+                    lon: -87.6298
+                }
+            };
+
+            const location = locations[selectedLocation];
+            tourList.innerHTML = `
+                <div class="show-item">
+                    <h3>${location.name}</h3>
+                    <p>${location.description}</p>
+                    <button onclick="showPopup()">Buy Tickets</button>
+                </div>
+            `;
+
+            const map = L.map('map').setView([location.lat, location.lon], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([location.lat, location.lon]).addTo(map);
+        }
+
+        // Initialize the map and list for the default selection (New York)
+        document.addEventListener('DOMContentLoaded', updateMapAndList);
+    </script>
+  
+  <script>
+  
+  
+   // Locations data (combining location info and event details)
+const locations = {
+  "New York, USA": { coords: [40.7128, -74.0060], date: "January 15, 2024", time: "7:00 PM", address: "123 Broadway St, New York, NY 10001", price: "$50" },
+  "Los Angeles, USA": { coords: [34.0522, -118.2437], date: "January 22, 2024", time: "8:00 PM", address: "456 Sunset Blvd, Los Angeles, CA 90028", price: "$60" },
+  "Chicago, USA": { coords: [41.8781, -87.6298], date: "January 30, 2024", time: "7:30 PM", address: "789 Lake St, Chicago, IL 60601", price: "$55" },
+  "Austin, USA": { coords: [30.2672, -97.7431], date: "February 5, 2024", time: "8:00 PM", address: "321 Congress Ave, Austin, TX 78701", price: "$45" },
+  "London, UK": { coords: [51.5074, -0.1278], date: "February 15, 2024", time: "6:00 PM", address: "789 Oxford St, London, UK", price: "$40" },
+  "Sydney, Australia": { coords: [-33.8688, 151.2093], date: "February 20, 2024", time: "7:30 PM", address: "321 George St, Sydney, NSW 2000", price: "$50" },
+  "Toronto, Canada": { coords: [43.6532, -79.3832], date: "March 1, 2024", time: "7:00 PM", address: "456 Queen St, Toronto, ON M5V 2B6", price: "$55" },
+  "Berlin, Germany": { coords: [52.5200, 13.4050], date: "March 5, 2024", time: "8:00 PM", address: "789 Alexanderplatz, Berlin, Germany", price: "$60" },
+  "Paris, France": { coords: [48.8566, 2.3522], date: "March 10, 2024", time: "6:00 PM", address: "123 Champs-Elysées, Paris, France", price: "$45" }
+};
+
+// Initialize map
+const map = L.map('map').setView([51.5074, -0.1278], 2);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// Function to update map and display location details
+function updateMap(city) {
+  const location = locations[city];
+
+  // Center map and add marker for the selected location
+  map.setView(location.coords, 10);
+  L.marker(location.coords).addTo(map).bindPopup(`${city}<br>${location.date}<br>${location.time}`).openPopup();
+
+  // Display location details in the UI
+  document.getElementById('locationResult').textContent = `Tour Date: ${location.date}`;
+  document.getElementById('tourCard').style.display = 'block';
+  document.getElementById('tourCity').textContent = city;
+  document.getElementById('tourDetails').textContent = `Date & Time: ${location.date} at ${location.time}`;
+}
+
+// Function to check location either by input or dropdown
+function checkLocation() {
+  const inputLocation = document.getElementById('locationInput').value.trim();
+  const dropdownLocation = document.getElementById('cityDropdown').value;
+  const selectedLocation = inputLocation || dropdownLocation;
+
+  if (locations[selectedLocation]) {
+    updateMap(selectedLocation);
+  } else {
+    document.getElementById('locationResult').textContent = "Location not found.";
+  }
+}
+
+// Event listener for the dropdown change
+document.getElementById('cityDropdown').addEventListener('change', checkLocation);
+
+// Event listener for location input
+document.getElementById('locationInput').addEventListener('input', checkLocation);
+
+// Function to update map and show list based on country selection
+function updateMapAndList() {
+  const selectedCountry = document.getElementById('countryDropdown').value;
+
+  if (!selectedCountry) return;
+
+  // Clear previous map markers and show list
+  map.eachLayer(function (layer) {
+    if (layer instanceof L.Marker) {
+      map.removeLayer(layer);
+    }
+  });
+  document.getElementById('showList').innerHTML = '';
+
+  // Filter locations based on selected country and display them
+  Object.keys(locations).forEach(city => {
+    if (city.includes(selectedCountry)) {
+      const location = locations[city];
+      L.marker(location.coords).addTo(map).bindPopup(`${city}<br>${location.date}<br>${location.time}`);
+      
+      // Add to the show list
+      const showItemHTML = `
+        <div class="show-item">
+          <h3>${city}</h3>
+          <p>Date: ${location.date}</p>
+          <p>Time: ${location.time}</p>
+          <p>Address: ${location.address}</p>
+          <p>Price: ${location.price}</p>
+          <button onclick="addToCart('${city}', '${location.price}')">Buy Tickets</button>
+        </div>
+      `;
+      document.getElementById('showList').innerHTML += showItemHTML;
+    }
+  });
+}
+
+// Function to add items to the cart (simple alert)
+function addToCart(city, price) {
+  alert(`Added ${city} tickets for ${price} to the cart!`);
+}
+
+    </script>
+</body>
+
+</html>
