@@ -97,3 +97,15 @@
 
         cartTotal.innerText = `$${total.toFixed(2)}`;
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.querySelector('.carousel');
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+    
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            carousel.style.transform = `translateX(-${currentIndex * 50}%)`;
+        }, 100000); // Adjust time for transition
+    });

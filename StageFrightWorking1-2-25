@@ -45,22 +45,21 @@
     </div>
 
     <!-- Header Section -->
-    <header>
-        <h1>Stage Fright</h1>
-        <p>The Ultimate Concert Experience</p>
-        <a href="#tour">Buy Tickets</a>
+    <header class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item item1"></div>
+            <div class="carousel-item item2"></div>
+            <div class="carousel-item item3"></div>
+            <div class="carousel-item item4"></div>
+        </div>
+        <div class="content">
+            <h1>Stage Fright</h1>
+            <p>The Ultimate Concert Experience</p>
+            <a href="./Tour.html">Buy Tickets</a>
+        </div>
     </header>
 
    
-
-
-
-
-
-
-
-
-
 
 
     
