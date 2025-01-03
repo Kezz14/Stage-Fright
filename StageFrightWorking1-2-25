@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Fright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+    <link rel="stylesheet" href="./style.css"/>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="./StageFrightWorking1-2-25">Home</a>
+            <a href="./Tour.html">Tour</a>
+            <a href="./Merch.html">Merch</a>
+            <a href="./About.html">About</a>
+            <a href="./Contact.html">Contact</a>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <p>Total: $<span id="cartTotal">0</span></p>
+            <button>Checkout</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Stage Fright</h1>
+        <p>The Ultimate Concert Experience</p>
+        <a href="#tour">Buy Tickets</a>
+    </header>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Stage Fright. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
