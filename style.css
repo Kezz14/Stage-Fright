@@ -14,6 +14,11 @@ h1, h2, h3 {
     margin: 0 0 10px;
 }
 
+h2 {
+    padding-top: 60px;
+}
+
+
 /* Navbar */
 .navbar {
     position: fixed;
@@ -398,6 +403,11 @@ select {
 
 .item button:hover {
     background-color: #e63e00;
+}
+
+/* About */
+#band-members {
+    padding-top: 10px;
 }
 
 /* Contact */
