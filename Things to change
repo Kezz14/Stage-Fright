@@ -1,0 +1,8 @@
+When changing pages, the shopping cart resets. Also, the cart doesn't update when buying merch.
+We need to find fonts and other formatting ways to make the website look better.
+I will work on adding images to the member profiles and get started on the contact page. 
+I need your help using javascript to implement a feature in contact us where user can input name, email, and inquiries.
+Also, for the member blurbs under their pictures, I was hoping to implement a feature where it takes a bit from the learn more section and 
+    does the elipses (...) to indicate more, which can be read by pressing learn more. But I want it to be responsive so the amount of text
+    will change depending on how big the screen/window is. I need your help doing this part too. 
+- Nuzhat
