@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-
-    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
@@ -29,7 +28,7 @@
     </div>
 
     <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-sidebar" id="cartSidebar" style="transform: translateX(100%);">
         <div class="cart-header">
             <h3>Shopping Cart</h3>
             <button onclick="toggleCart()">&times;</button>
@@ -51,7 +50,7 @@
                 <img src="./assets/images/T-Shirt.png" alt="T-Shirt">
                 <h3>T-Shirt</h3>
                 <p>$25</p>
-                 <button onclick="addToCart('Stage Fright T-shirt', 20)">Add to Cart</button>
+                <button onclick="addToCart('Stage Fright T-shirt', 25)">Add to Cart</button>
             </div>
             <div class="item">
                 <img src="./assets/images/Hoodie.png" alt="Hoodie">
@@ -60,48 +59,19 @@
                 <button onclick="addToCart('Hoodie', 40)">Add to Cart</button>
             </div>
             <div class="item">
-                <img src="./assets/images/Poster.png" alt="Poster">
+                <img src="./assets/images/Poster.png" alt="Hoodie">
                 <h3>Poster</h3>
                 <p>$10</p>
                 <button onclick="addToCart('Poster', 10)">Add to Cart</button>
             </div>
             <div class="item">
-                <img src="./assets/images/Vinyl.png" alt="Vinyl">
+                <img src="./assets/images/Vinyl.png" alt="Hoodie">
                 <h3>Vinyl</h3>
                 <p>$30</p>
                 <button onclick="addToCart('Vinyl', 30)">Add to Cart</button>
             </div>
             <!-- ADD A CD -->
 
-
-            <!-- Duplicates: --> 
-            <div class="item">
-                <img src="./assets/images/T-Shirt.png" alt="T-Shirt">
-                <h3>T-Shirt</h3>
-                <p>$25</p>
-                 <button onclick="addToCart('Stage Fright T-shirt', 20)">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./assets/images/Hoodie.png" alt="Hoodie">
-                <h3>Hoodie</h3>
-                <p>$40</p>
-                <button onclick="addToCart('Hoodie', 40)">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./assets/images/Poster.png" alt="Poster">
-                <h3>Poster</h3>
-                <p>$10</p>
-                <button onclick="addToCart('Poster', 10)">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./assets/images/Vinyl.png" alt="Vinyl">
-                <h3>Vinyl</h3>
-                <p>$30</p>
-                <button onclick="addToCart('Vinyl', 30)">Add to Cart</button>
-            </div>
-
-               
-            </div>
         </div>
     </section>
 
@@ -110,9 +80,73 @@
         <p>&copy; 2025 Stage Fright. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Include the script for cart functionality -->
+    <script>
+        // Initialize cart from localStorage if available
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartCount = cart.length;
+
+        // Update cart display when the page loads
+        updateCartDisplay();
+
+        // Toggle Cart Sidebar
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            if (cartSidebar.style.transform === 'translateX(0%)') {
+                cartSidebar.style.transform = 'translateX(100%)';
+            } else {
+                cartSidebar.style.transform = 'translateX(0%)';
+            }
+        }
+
+        // Add item to cart
+        function addToCart(itemName, price) {
+            const numericPrice = parseFloat(price); // Convert the price string to a number
+            cart.push({ itemName, price: numericPrice });
+            cartCount = cart.length;
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save to localStorage
+            updateCartDisplay();
+            alert(`Added ${itemName} for $${numericPrice.toFixed(2)} to your cart!`);
+        }
 
 
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove the item at the given index
+            cartCount = cart.length;
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCartDisplay(); // Update display after removing item
+        }
+
+        // Update cart display (cart count and cart items)
+        function updateCartDisplay() {
+            const cartCountElement = document.getElementById('cartCount');
+            const cartItemsElement = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+
+            // Update cart count
+            cartCountElement.innerText = cartCount;
+
+            // Clear current cart items display
+            cartItemsElement.innerHTML = '';
+
+            let total = 0;
+
+            // Add items to cart display
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `${item.itemName} - $${item.price} 
+                                    <button onclick="removeFromCart(${index})">Remove</button>`;
+                cartItemsElement.appendChild(itemDiv);
+                total += item.price; // Sum the prices of all items in the cart
+            });
+
+            // Update total
+            cartTotalElement.innerText = total.toFixed(2); // Ensure total is formatted as a decimal
+        }
+
+    </script>
 </body>
 
 </html>
