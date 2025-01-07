@@ -1,0 +1,43 @@
+/* About */
+
+#band-description {
+    margin: 20px;
+    background-image: url(./assets/images/Carousel\ 1.jpg);
+    background-size: 50%;
+    
+}
+
+#band-description p {
+    padding: 50px;
+    color:white;
+}
+
+#band-members {
+    padding-top: 10px;
+}
+
+.item > p {
+    padding: 6px 0px;
+}
+
+.item > h3 {
+    padding-top: 10px;
+}
+
+.role {
+    color: rgba(80, 80, 80, 0.836);
+    font-size: 14px;
+}
+
+.item .about-button{
+    background-color: #e7e7e7; 
+    color: black;
+}
+
+.item .about-button:hover {
+    background-color: #b0b0b0;
+}
+
+#band-met {
+    margin: 20px;
+}
