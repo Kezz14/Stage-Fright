@@ -1,4 +1,32 @@
+body {
+    background-color: rgb(201, 229, 249);
+}
+
 img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+}
+
+img, p {
+    padding: 0px 10px 0px 10px;
+}
+
+.right-image {
+    float: left;
+}
+
+.left-image {
+    float: right;
+    
+}
+
+p {
+    background-color: #aed7f1;
+
+}
+
+span {
+    font-size: 3rem;
+    font-weight: bold;;
 }
