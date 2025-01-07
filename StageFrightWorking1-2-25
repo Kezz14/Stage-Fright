@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-
     <link rel="stylesheet" href="./style.css"/>
-
 </head>
 
-<body>
+<body style="background-image: url('back.webp'); background-size: cover; background-position: center;">
+
     <!-- Navbar -->
     <div class="navbar">
         <div class="nav-links">
@@ -26,21 +25,6 @@
         <div class="cart-icon" onclick="toggleCart()">
             <i class="fas fa-shopping-cart"></i>
             <span id="cartCount" class="cart-badge">0</span>
-        </div>
-    </div>
-
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button onclick="toggleCart()">&times;</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Items will be dynamically added here -->
-        </div>
-        <div class="cart-total">
-            <p>Total: $<span id="cartTotal">0</span></p>
-            <button>Checkout</button>
         </div>
     </div>
 
@@ -59,10 +43,72 @@
         </div>
     </header>
 
-   
+    <div class="faq">
+        <div class="accordion">
+          <div class="accordion-item">
+            <h1>Frequently asked questions</h1>
+            <button aria-expanded="false">
+              <span class="accordion-title">What is your name?</span>
+              <span class="icon"></span>
+            </button>
+            <div class="accordion-content">
+              <p>My name is John Doe.</p>
+            </div>
+            
+            <button aria-expanded="false">
+                <span class="accordion-title">is your name?</span>
+                <span class="icon"></span>
+              </button>
+              <div class="accordion-content">
+                <p>My name is e.</p>
+              </div>
+              <button aria-expanded="false">
+                <span class="accordion-title">is your name?</span>
+                <span class="icon"></span>
+              </button>
+              <div class="accordion-content">
+                <p>My name is e.</p>
+              </div>
+              <button aria-expanded="false">
+                <span class="accordion-title">is your name?</span>
+                <span class="icon"></span>
+              </button>
+              <div class="accordion-content">
+                <p>My name is e.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Contact Form Section -->
+    <div id="contact-container">
+        <h1>&bull; Get in Touch &bull;</h1>
+        <div class="underline"></div>
+        <form action="#" method="post" id="contact-form">
+            <div class="input-group">
+                <input type="text" placeholder="Name" name="name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Phone" name="telephone" required>
+            </div>
+            <div class="input-group">
+                <select name="subject" required>
+                    <option value="" disabled selected>Subject</option>
+                    <option>Booking Inquiry</option>
+                    <option>Fan Feedback</option>
+                    <option>Media Request</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <textarea name="message" placeholder="Message" rows="4" required></textarea>
+            </div>
+            <button type="submit" id="submit-button">Send</button>
+        </form>
+    </div>
 
-
-    
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Stage Fright. All rights reserved.</p>
@@ -71,7 +117,23 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>
 
+    <script>
+        const items = document.querySelectorAll(".accordion button");
 
+        function toggleAccordion() {
+            const itemToggle = this.getAttribute('aria-expanded');
+            
+            for (let i = 0; i < items.length; i++) {
+                items[i].setAttribute('aria-expanded', 'false');
+            }
+            
+            if (itemToggle == 'false') {
+                this.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+    </script>
 </body>
 
 </html>

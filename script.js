@@ -125,3 +125,59 @@ function updateCartDisplay() {
     // Update total
     cartTotalElement.innerText = total.toFixed(2); // Ensure total is formatted as a decimal
 }
+
+const checkoutCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Populate cart details on the checkout page
+function populateCheckoutCart() {
+    const cartItemsElement = document.getElementById('cartItems');
+    const cartTotalElement = document.getElementById('cartTotal');
+    const cartCountElement = document.getElementById('cartCount');
+    
+    cartItemsElement.innerHTML = ''; // Clear current items
+    let total = 0;
+
+    checkoutCart.forEach((item, index) => {
+        const itemDiv = document.createElement('p');
+        itemDiv.innerHTML = `${item.itemName} <span class="price">$${item.price.toFixed(2)}</span>`;
+        cartItemsElement.appendChild(itemDiv);
+        total += item.price;
+    });
+
+    // Update total and count
+    cartTotalElement.innerText = `$${total.toFixed(2)}`;
+    cartCountElement.innerText = checkoutCart.length;
+}
+
+// Handle form submission
+document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Order placed successfully! Thank you for shopping.');
+    localStorage.removeItem('cart'); // Clear the cart
+    window.location.href = 'index.html'; // Redirect to home or confirmation page
+});
+
+// Initialize
+populateCheckoutCart();
+
+
+// FAQ
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".faq .accordion button");
+  
+    buttons.forEach(button => {
+      button.addEventListener("click", function () {
+        // Toggle the expanded state of the button
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", !isExpanded);
+  
+        // Get the associated content and toggle its visibility
+        const content = button.nextElementSibling;
+        if (content) {
+          content.style.maxHeight = isExpanded ? "0" : content.scrollHeight + "px";
+          content.style.opacity = isExpanded ? "0" : "1";
+        }
+      });
+    });
+  });
+  
