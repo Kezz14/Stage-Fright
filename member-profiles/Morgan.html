@@ -4,23 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stage Fright</title>
-    <link rel="stylesheet" href="../profiles.css"/>
+    <!-- <link rel="stylesheet" href="../profiles.css"/> -->
+
+    <style>
+        .flexbox {
+            display: flex;
+        }
+
+        img {
+            height: 200px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        div > .images, .text{
+            background-color: rgb(237, 237, 237);
+        }
+
+        .images {
+            width: 200px;
+            padding: 20px 20px 10px 20px;
+            margin: 20px;
+        }
+
+        .text {
+            padding: 20px;
+            padding-top: 0px;
+            margin: 20px;
+            height: 660px;
+        }
+
+        span {
+            font-size: 2rem;
+            font-weight: bold;
+            /* font-style: italic; */
+        }
+
+        @media (max-width: 1010px) {
+            .flexbox {
+                flex-direction: column;
+            }
+
+            img {
+                height: 100px;
+                width: 100px; 
+                margin-bottom: 0px;
+            }
+
+            .images {
+                display: flex;
+                padding: 20px 20px 15px 20px;
+                width: auto;
+                margin: auto;
+            }
+
+            .row {
+                flex: 33.33%;
+                padding: 5px;
+            }
+
+            .text {
+                height: auto;
+            }
+        }
+
+
+     </style>
 
 </head>
 <body>
-    <img src="../assets/images/members/Morgan 1.jpg" alt="Morgan listening to music in his room"/>
-    <p>Morgan Lee, the drummer of Stage Fright, is the rhythmic heartbeat of the band. Born in the Brooklyn county of New York City, he was frequently exposed to various music genres from the early jazz and blues to the punk and indie rock that originated from the movements of the 70s and 80s. While neither of his parents had occupations as musicians, they both shared a love for classic rock. As a result, Morgan grew up surrounded by music. However, it was his neighbor's drum set that caught Morgan's attention when he was 11 years old. Since then, he spent hours visiting his neighbor and hearing him play the drums. 
-    </p>
+    <div class="flexbox">
+        <div class="images">
+            <div class="row">    <img src="../assets/images/members/Morgan 1.jpg" alt="Morgan listening to music in his room"/>            </div>
+            <div class="row">    <img src="../assets/images/members/Morgan 2.jpg" alt="Morgan mowing the lawn"/>            </div>
+            <div class="row">    <img src="../assets/images/members/Morgan 3.jpg" alt="Morgan playing drums in his garage"/>            </div>
+        </div>
 
-    <img src="../assets/images/members/Morgan 2.jpg" alt="Morgan mowing the lawn"/>
-    <p>In middle school, Morgan’s temper and rebellious streak began to cause trouble. However, his undeniable charisma and quick wit made him impossible to ignore. Teachers called him a “force of nature,” while classmates admired his unshakable confidence. With a fiery personality and a sharp tongue, he quickly earned a reputation for being fearless, often stepping in to defend others who couldn’t stand up for themselves. It was this protective streak, combined with a tendency to settle disputes with fists rather than words, that frequently landed Morgan in detention.
-    </p>
+        <div class="text">
+            <p><span>Morgan Lee</span>, the drummer of Stage Fright, is the rhythmic heartbeat of the band. Born in the Brooklyn county of New York City, he was frequently exposed to various music genres from the early jazz and blues to the punk and indie rock that originated from the movements of the 70s and 80s. While neither of his parents had occupations as musicians, they both shared a love for classic rock. As a result, Morgan grew up surrounded by music. However, it was his neighbor's drum set that caught Morgan's attention when he was 11 years old. Since then, he spent hours visiting his neighbor and hearing him play the drums. 
+            </p>
 
-    <img src="../assets/images/members/Morgan 3.jpg" alt="Morgan playing drums in his garage"/>
-    <p>At the age of 14, Morgan picked up his first drum kit, a secondhand set he saved up for by mowing lawns and doing odd jobs around his neighborhood. He started teaching himself the basics, banging away on the set in his garage, never bothering with traditional lessons. To him, it wasn’t about perfection; it was about feeling the rhythm, the power, and the release of the drums. Over time, Morgan learned to transform his fiery temper and violent tendencies into something far more powerful: a deep love for rhythm and movement. Drumming became his salvation, a way to channel the chaos within into something meaningful. The raw energy that once erupted in fights now poured into every beat he played, turning disorder into harmony and unbridled emotion into art.
-    </p>
+            <p>In middle school, Morgan’s temper and rebellious streak began to cause trouble. However, his undeniable charisma and quick wit made him impossible to ignore. Teachers called him a “force of nature,” while classmates admired his unshakable confidence. With a fiery personality and a sharp tongue, he quickly earned a reputation for being fearless, often stepping in to defend others who couldn’t stand up for themselves. It was this protective streak, combined with a tendency to settle disputes with fists rather than words, that frequently landed Morgan in detention.
+            </p>
 
-    <p>Now, as the drummer for Stage Fright, Morgan Lee is the unrelenting pulse that drives the band’s sound. On stage, he commands attention with his raw energy and precision, transforming his kit into a thunderous force that electrifies audiences. Every beat he plays is a testament to his journey—a blend of unfiltered passion and disciplined artistry. Offstage, Morgan’s fiery personality hasn’t dimmed, but it’s softened into a protective, big-brother role within the group. He’s the one who pushes everyone to their limits, cracks jokes to ease pre-show jitters, and fiercely defends his bandmates like they’re family. For Morgan, being in Stage Fright is more than just playing music; it’s about finding belonging and purpose, proving that even a once-lost troublemaker can become the backbone of something extraordinary.
-    </p>
+            <p>At the age of 14, Morgan picked up his first drum kit, a secondhand set he saved up for by mowing lawns and doing odd jobs around his neighborhood. He started teaching himself the basics, banging away on the set in his garage, never bothering with traditional lessons. To him, it wasn’t about perfection; it was about feeling the rhythm, the power, and the release of the drums. Over time, Morgan learned to transform his fiery temper and violent tendencies into something far more powerful: a deep love for rhythm and movement. Drumming became his salvation, a way to channel the chaos within into something meaningful. The raw energy that once erupted in fights now poured into every beat he played, turning disorder into harmony and unbridled emotion into art.
+            </p>
+
+            <p>Now, as the drummer for Stage Fright, Morgan Lee is the unrelenting pulse that drives the band’s sound. On stage, he commands attention with his raw energy and precision, transforming his kit into a thunderous force that electrifies audiences. Every beat he plays is a testament to his journey—a blend of unfiltered passion and disciplined artistry. Offstage, Morgan’s fiery personality hasn’t dimmed, but it’s softened into a protective, big-brother role within the group. He’s the one who pushes everyone to their limits, cracks jokes to ease pre-show jitters, and fiercely defends his bandmates like they’re family. For Morgan, being in Stage Fright is more than just playing music; it’s about finding belonging and purpose, proving that even a once-lost troublemaker can become the backbone of something extraordinary.
+            </p>
+        </div>
+    </div>
+
 </body>
 </html>
