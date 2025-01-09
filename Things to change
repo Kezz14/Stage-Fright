@@ -10,3 +10,15 @@ Also, for the member blurbs under their pictures, I was hoping to implement a fe
 add sizes to the t-shirt and hoodie in the merch section
 
 when sending the contact message it shows error
+
+
+ABOUT PG:
+fix top paragraph
+change the band member's layout to be vertical
+change all learn more to Jamie's css
+    adjust color of image and text div
+add the transform code to the image and text div so it 
+    pops up when you hover on top of it
+add padding all around
+add padding or margin at the top to see h2 for about and merch
+look at the site123 and try implementing image bg with text div on top (try relative positioning)

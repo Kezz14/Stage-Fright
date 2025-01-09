@@ -18,6 +18,10 @@ h2 {
     padding-top: 60px;
 }
 
+.pg-name {
+    padding-top: 100px;
+}
+
 /* Navbar */
 .navbar {
     position: fixed;
