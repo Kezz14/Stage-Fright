@@ -1064,7 +1064,7 @@ footer {
   .faq .accordion-content {
     opacity: 0;
     max-height: 0;
-    overflow: hidden;
+    overflow: scroll;
     transition: opacity 200ms linear, max-height 200ms linear;
   }
   
