@@ -9,24 +9,51 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="../ccard.css"/>
 </head>
 
 <body style="background-image: url('back.webp'); background-size: cover; background-position: center;">
 
     <!-- Navbar -->
     <div class="navbar">
+        <div class="nav-logo">
+            <a href="./index.html">
+                <img src="logo1.png" alt="Stage Fright Logo" class="logo">
+            </a>
+        </div>
         <div class="nav-links">
             <a href="./index.html">Home</a>
             <a href="./Tour.html">Tour</a>
             <a href="./Merch.html">Merch</a>
             <a href="./About.html">About</a>
-            <a href="./Contact.html">Contact</a>
+            <a href=#contact-container>Contact</a>
         </div>
         <div class="cart-icon" onclick="toggleCart()">
             <i class="fas fa-shopping-cart"></i>
             <span id="cartCount" class="cart-badge">0</span>
         </div>
     </div>
+    
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+    </div>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar" style="transform: translateX(100%);">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <p>Total: $<span id="cartTotal">0</span></p>
+            <button>Checkout</button>
+        </div>
+    </div>
+
 
     <!-- Header Section -->
     <header class="carousel-container">
@@ -108,6 +135,24 @@
             <button type="submit" id="submit-button">Send</button>
         </form>
     </div>
+    
+   <!-- Contact Container -->
+   <div id="contact-container">
+    <h1>&bull; Get in Touch &bull;</h1>
+    <p>This is the contact section. Scroll here to see the side card appear.</p>
+</div>
+
+<!-- Side Contact Card -->
+<div id="side-contact-card" class="hidden">
+    <h2>Contact Us</h2>
+    <p>For bookings, inquiries, or customer support, reach out to us:</p>
+    <ul>
+        <li>Email: contact@stagefright.com</li>
+        <li>Phone: (123) 456-7890</li>
+        <li>Social Media: @StageFrightBand</li>
+    </ul>
+</div>
+
 
     <!-- Footer -->
     <footer>

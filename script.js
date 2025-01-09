@@ -180,4 +180,20 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-  
+  document.addEventListener("scroll", () => {
+    const contactContainer = document.getElementById("contact-container");
+    const contactCard = document.getElementById("side-contact-card");
+
+    // Get the bounding rectangle for the contact container
+    const containerPosition = contactContainer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Check if the container is visible in the viewport
+    if (containerPosition.top <= windowHeight && containerPosition.bottom >= 0) {
+        contactCard.classList.add("visible");
+        contactCard.classList.remove("hidden");
+    } else {
+        contactCard.classList.add("hidden");
+        contactCard.classList.remove("visible");
+    }
+});

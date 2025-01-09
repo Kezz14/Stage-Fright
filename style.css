@@ -1115,3 +1115,30 @@ footer {
     margin: 1.5em 0; /* Reduced margin */
   }
   
+.nav-logo img {
+    height: 60px; /* Adjust logo size */
+    
+}
+
+#side-contact-card {
+    position: fixed;
+    top: 50%;
+    right: -300px;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 9999; /* Make sure it's on top of other content */
+}
+
+#side-contact-card.visible {
+    right: 16px;
+}
+
+#side-contact-card.hidden {
+    right: -300px;
+}
