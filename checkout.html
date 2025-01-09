@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Josefin Sans", sans-serif;
+      color: #fff;
+      line-height: 1.4;
+      background-color: #1a1a1a;
+      margin: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .content {
+      display: block;
+      z-index: 9999;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      color: #ff6a3d;
+    }
+
+    .logo .icon {
+      font-size: 32px;
+      margin-right: 5px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+    }
+
+    .col-75,
+    .col-25 {
+      padding: 0 16px;
+    }
+
+    .col-75 {
+      flex: 75%;
+    }
+
+    .col-25 {
+      flex: 25%;
+    }
+
+    .container {
+      background-color: #333;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+      padding: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 2px solid #444;
+      margin-bottom: 20px;
+      color: #fff;
+      background-color: #222;
+    }
+
+    .btn {
+      font-family: "Josefin Sans", sans-serif;
+      border-radius: 8px;
+      border: 0;
+      color: #fff;
+      background: #ff6a3d;
+      padding: 20px 60px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background: #ff4f1a;
+      transform: translateY(-1px);
+    }
+
+    .cart-summary {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .cart-item button {
+      background-color: #444;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      color: #7dc855;
+      transition: background-color 0.3s;
+    }
+
+    .cart-item button:hover {
+      background-color: #333;
+    }
+
+    .payment__title {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .payment__title .icon {
+      margin-right: 10px;
+      font-size: 24px;
+    }
+
+    .payment__types {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .payment__type {
+      background: #444;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid #d9d9d9;
+      transition: background 0.3s;
+    }
+
+    .payment__type.active {
+      background: #ff6a3d;
+      border-color: #ff6a3d;
+    }
+
+    .payment__type:hover {
+      background: #666;
+    }
+
+    .icon-xl {
+      font-size: 48px;
+      margin-right: 10px;
+    }
+
+    .thankyou .details {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .thankyou .details h3 {
+      font-weight: 600;
+    }
+
+    .thankyou-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ff6a3d;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      z-index: 9999;
+    }
+
+    .thankyou-popup .btn {
+      background-color: #444;
+      color: white;
+      margin-top: 20px;
+    }
+
+    /* Floating Cart Button */
+    .floating-cart {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: #ff6a3d;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <span class="icon fa fa-credit-card"></span> Checkout
+  </div>
+
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+        <h3>Billing Address</h3>
+        <form id="checkoutForm">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="john@example.com">
+          <label for="adr">Address</label>
+          <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="New York">
+          
+          <h3>Payment</h3>
+          <label for="cardname">Name on Card</label>
+          <input type="text" id="cardname" name="cardname" placeholder="John More Doe">
+          <label for="ccnum">Credit card number</label>
+          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+          <label for="expmonth">Exp Month</label>
+          <input type="text" id="expmonth" name="expmonth" placeholder="September">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" name="cvv" placeholder="352">
+
+          <input type="submit" value="Complete Purchase" class="btn">
+        </form>
+      </div>
+    </div>
+
+    <div class="col-25">
+      <div class="container cart-summary">
+        <h4>Cart Summary</h4>
+        <div class="cart-summary" id="cartItems"></div>
+        <p><b>Total: $<span id="cartTotal">0.00</span></b></p>
+        <p>Cart Count: <span id="cartCount">0</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="floating-cart" id="floatingCart">
+    <span id="cartCountFloat">0</span> Items
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartCount = cartItems.length;
+
+    function updateCartDisplay() {
+      const cartCountElement = document.getElementById('cartCount');
+      const cartCountFloat = document.getElementById('cartCountFloat');
+      const cartItemsElement = document.getElementById('cartItems');
+      const cartTotalElement = document.getElementById('cartTotal');
+
+      cartCountElement.innerText = cartCount;
+      cartCountFloat.innerText = cartCount;
+      cartItemsElement.innerHTML = '';
+      let total = 0;
+
+      cartItems.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `${item.itemName} - $${item.price} 
+                             <button onclick="removeFromCart(${cartItems.indexOf(item)})">Remove</button>`;
+        cartItemsElement.appendChild(itemDiv);
+        total += item.price;
+      });
+
+      cartTotalElement.innerText = total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      cartItems.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      updateCartDisplay();
+    }
+
+    document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const checkoutButton = e.target.querySelector('input[type="submit"]');
+      checkoutButton.disabled = true;
+      checkoutButton.value = "Processing Order...";
+
+      // Simulate order processing with a 3-second delay
+      setTimeout(() => {
+        checkoutButton.value = "Complete Purchase";
+        checkoutButton.disabled = false;
+        showThankYouPopup();
+      }, 1500);
+    });
+
+    function showThankYouPopup() {
+      const popup = document.createElement('div');
+      popup.classList.add('thankyou-popup');
+      popup.innerHTML = 'Thank you for your purchase!';
+      document.body.appendChild(popup);
+
+      setTimeout(() => {
+        popup.remove();
+        // Show confetti
+        confetti();
+        // Clear cart and redirect home after confetti
+        localStorage.removeItem('cart');
+        setTimeout(() => {
+          window.location.href = '/';  // Redirect to home page
+        }, 5000);
+      }, 1400);
+    }
+
+    updateCartDisplay();
+  </script>
+</body>
+</html>
