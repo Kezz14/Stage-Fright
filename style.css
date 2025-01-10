@@ -669,6 +669,16 @@ header a:hover {
 .item button:hover {
     background-color: #e63e00;
 }
+.sold-out {
+    opacity: 0.5;
+    pointer-events: none; /* Disable interactions */
+}
+
+.sold-out .sold-out-message {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2em;
+}
 
 /* Footer */
 footer {
