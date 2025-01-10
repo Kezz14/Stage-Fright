@@ -180,20 +180,35 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-  document.addEventListener("scroll", () => {
-    const contactContainer = document.getElementById("contact-container");
-    const contactCard = document.getElementById("side-contact-card");
+  document.addEventListener("DOMContentLoaded", () => {
+    const sideContactCard = document.getElementById("side-contact-card");
 
-    // Get the bounding rectangle for the contact container
-    const containerPosition = contactContainer.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // Check if the container is visible in the viewport
-    if (containerPosition.top <= windowHeight && containerPosition.bottom >= 0) {
-        contactCard.classList.add("visible");
-        contactCard.classList.remove("hidden");
-    } else {
-        contactCard.classList.add("hidden");
-        contactCard.classList.remove("visible");
-    }
+    // Show side contact card after a delay
+    setTimeout(() => {
+        sideContactCard.style.display = "block";
+    }, 3000); // 3 seconds delay
 });
+const sideCard = document.getElementById('side-contact-card');
+        const toggleButton = document.createElement('button');
+
+        toggleButton.textContent = 'Contact Us';
+        toggleButton.style.position = 'fixed';
+        toggleButton.style.bottom = '20px';
+        toggleButton.style.right = '20px';
+        toggleButton.style.background = '#ff6a3d';
+        toggleButton.style.color = '#fff';
+        toggleButton.style.padding = '10px 20px';
+        toggleButton.style.border = 'none';
+        toggleButton.style.borderRadius = '4px';
+        toggleButton.style.cursor = 'pointer';
+        toggleButton.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.5)';
+
+        document.body.appendChild(toggleButton);
+
+        toggleButton.addEventListener('click', () => {
+            sideCard.classList.toggle('hidden');
+        });
+
+        document.getElementById('close-card').addEventListener('click', () => {
+            sideCard.classList.add('hidden');
+        });
