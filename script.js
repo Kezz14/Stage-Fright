@@ -11,12 +11,31 @@ console.log("Script loaded");
     const locations = {
         "New York, USA": { coords: [40.7128, -74.0060], date: "January 15, 2024", time: "7:00 PM", address: "123 Broadway St, New York, NY 10001", price: 50 },
         "Los Angeles, USA": { coords: [34.0522, -118.2437], date: "January 22, 2024", time: "8:00 PM", address: "456 Sunset Blvd, Los Angeles, CA 90028", price: 60 },
+        "Chicago, USA": { coords: [41.8781, -87.6298], date: "February 5, 2024", time: "7:30 PM", address: "789 Michigan Ave, Chicago, IL 60611", price: 55 },
         "London, UK": { coords: [51.5074, -0.1278], date: "February 15, 2024", time: "6:00 PM", address: "789 Oxford St, London, UK", price: 40 },
-        "Sydney, Australia": { coords: [-33.8688, 151.2093], date: "February 20, 2024", time: "7:30 PM", address: "321 George St, Sydney, NSW 2000", price: 50 },
-        "Toronto, Canada": { coords: [43.6532, -79.3832], date: "March 1, 2024", time: "7:00 PM", address: "456 Queen St, Toronto, ON M5V 2B6", price: 55 },
-        "Berlin, Germany": { coords: [52.5200, 13.4050], date: "March 5, 2024", time: "8:00 PM", address: "789 Alexanderplatz, Berlin, Germany", price: 60 },
-        "Paris, France": { coords: [48.8566, 2.3522], date: "March 10, 2024", time: "6:00 PM", address: "123 Champs-Elysées, Paris, France", price: 45 }
+        "Manchester, UK": { coords: [53.4808, -2.2426], date: "February 20, 2024", time: "7:00 PM", address: "123 Deansgate, Manchester, UK", price: 50 },
+        "Sydney, Australia": { coords: [-33.8688, 151.2093], date: "February 25, 2024", time: "7:30 PM", address: "321 George St, Sydney, NSW 2000", price: 50 },
+        "Melbourne, Australia": { coords: [-37.8136, 144.9631], date: "March 1, 2024", time: "8:00 PM", address: "456 Collins St, Melbourne, VIC 3000", price: 55 },
+        "Toronto, Canada": { coords: [43.6532, -79.3832], date: "March 5, 2024", time: "7:00 PM", address: "456 Queen St, Toronto, ON M5V 2B6", price: 55 },
+        "Vancouver, Canada": { coords: [49.2827, -123.1207], date: "March 10, 2024", time: "7:30 PM", address: "789 Robson St, Vancouver, BC V6E 1B2", price: 60 },
+        "Berlin, Germany": { coords: [52.5200, 13.4050], date: "March 15, 2024", time: "8:00 PM", address: "789 Alexanderplatz, Berlin, Germany", price: 60 },
+        "Munich, Germany": { coords: [48.1351, 11.5820], date: "March 20, 2024", time: "7:00 PM", address: "123 Marienplatz, Munich, Germany", price: 55 },
+        "Paris, France": { coords: [48.8566, 2.3522], date: "March 25, 2024", time: "6:00 PM", address: "123 Champs-Elysées, Paris, France", price: 45 },
+        "Lyon, France": { coords: [45.7640, 4.8357], date: "March 30, 2024", time: "7:00 PM", address: "456 Bellecour Square, Lyon, France", price: 50 },
+        "Rome, Italy": { coords: [41.9028, 12.4964], date: "April 5, 2024", time: "8:00 PM", address: "567 Via Nazionale, Rome, Italy", price: 55 },
+        "Milan, Italy": { coords: [45.4642, 9.1900], date: "April 10, 2024", time: "7:30 PM", address: "789 Duomo Square, Milan, Italy", price: 60 },
+        "Tokyo, Japan": { coords: [35.6895, 139.6917], date: "April 15, 2024", time: "7:00 PM", address: "234 Shibuya St, Tokyo, Japan", price: 65 },
+        "Osaka, Japan": { coords: [34.6937, 135.5023], date: "April 20, 2024", time: "8:00 PM", address: "567 Umeda St, Osaka, Japan", price: 60 },
+        "Rio de Janeiro, Brazil": { coords: [-22.9068, -43.1729], date: "April 10, 2024", time: "8:00 PM", address: "678 Copacabana Blvd, Rio, Brazil", price: 50 },
+        "Cape Town, South Africa": { coords: [-33.9249, 18.4241], date: "April 20, 2024", time: "6:30 PM", address: "345 Table Mountain Rd, Cape Town, SA", price: 60 },
+        "Madrid, Spain": { coords: [40.4168, -3.7038], date: "May 5, 2024", time: "7:00 PM", address: "890 Gran Via, Madrid, Spain", price: 55 },
+        "Mumbai, India": { coords: [19.0760, 72.8777], date: "May 15, 2024", time: "8:00 PM", address: "123 Marine Drive, Mumbai, India", price: 40 },
+        "Mexico City, Mexico": { coords: [19.4326, -99.1332], date: "May 25, 2024", time: "8:30 PM", address: "456 Reforma Blvd, Mexico City, Mexico", price: 50 },
+        "Moscow, Russia": { coords: [55.7558, 37.6173], date: "June 1, 2024", time: "7:00 PM", address: "789 Red Square, Moscow, Russia", price: 65 },
+        "Beijing, China": { coords: [39.9042, 116.4074], date: "June 10, 2024", time: "7:30 PM", address: "123 Wangfujing St, Beijing, China", price: 70 }
     };
+    
+    
 
     // Function to update map markers and show event details based on selected country
     function updateMapAndList() {
