@@ -140,36 +140,46 @@
         </form>
     </div>
  
-    <div class="contact-card" id="contactCard">
-        <button class="close-btn" onclick="closeCard()">×</button>
-        <h1>Contact Us</h1>
-        <p>For bookings, inquiries, or customer support, reach out to us:</p>
-        <ul>
-            <p>Email: contact@stagefright.com</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Social Media: @StageFrightBand</p>
-        </ul>
-      </div>
-    
-      <script>
-        // Show card when the contact-container is in view
-        const contactContainer = document.getElementById('contact-container');
-        const contactCard = document.getElementById('contactCard');
-    
-        function closeCard() {
-          contactCard.classList.remove('show');
-        }
-    
-        function handleScroll() {
-          const rect = contactContainer.getBoundingClientRect();
-          const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
-          if (isInView) {
-            contactCard.classList.add('show');
-          }
-        }
-    
-        window.addEventListener('scroll', handleScroll);
-      </script>
+   <!-- Contact Card HTML -->
+   <div class="contact-card" id="contactCard">
+    <button class="close-btn" onclick="closeCard()">×</button>
+    <h1>Contact Us</h1>
+    <p>For bookings, inquiries, or customer support, reach out to us:</p>
+    <ul>
+        <p>Email: contact@stagefright.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Social Media: @StageFrightBand</p>
+    </ul>
+</div>
+
+
+
+
+<script>
+    const contactCard = document.getElementById('contactCard');
+const contactContainer = document.getElementById('contact-container');
+let hasBeenShown = false; // Flag to track whether the card has already slid in
+
+function closeCard() {
+    contactCard.classList.remove('show');
+}
+
+// Show the card when the contact-container is in view for the first time
+function handleScroll() {
+    const rect = contactContainer.getBoundingClientRect();
+    const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+    // Only show the card the first time it's in view
+    if (isInView && !hasBeenShown) {
+        contactCard.classList.add('show');
+        hasBeenShown = true; // Set the flag to true so it doesn't slide in again
+    }
+}
+
+window.addEventListener('scroll', handleScroll);
+
+</script>
+
 
 
     <!-- Footer -->

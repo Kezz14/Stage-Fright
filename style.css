@@ -276,7 +276,11 @@ h2 {
 }
 
 .item2 {
-    background-image: url('fullBand2.png');
+    .item1 {
+        background-image: url('fullBand2.png');
+        background-color: #000; /* Fallback color */
+    }
+    
 }
 
 .item3 {
