@@ -254,17 +254,17 @@ h2 {
 }
 
 
-
 .carousel {
     display: flex;
     width: 100%;
     height: 100%;
+    overflow: hidden; /* Prevents content from spilling out */
+    position: relative; /* Ensures positioning for child elements */
     animation: slide 20s infinite;
 }
 
 .carousel-item {
-    flex: 1;
-    min-width: 100%;
+    flex: 0 0 100%; /* Ensures each item takes up exactly 100% of the width */
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -276,13 +276,16 @@ h2 {
 }
 
 .item2 {
-    background-image: url('fullBand2.png');}
+    background-image: url('fullBand2.png');
+}
 
 .item3 {
-    background-image: url('fullBand3.png');}
+    background-image: url('fullBand3.png');
+}
 
 .item4 {
-    background-image: url('fullBand4.png');}
+    background-image: url('fullBand4.png');
+}
 
 .content {
     position: absolute;
@@ -290,7 +293,6 @@ h2 {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 
 /* Animation for the Carousel with Pauses */
 @keyframes slide {
