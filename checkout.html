@@ -6,6 +6,7 @@
   <title>Checkout</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+  
   <style>
     *, *:after, *:before {
       box-sizing: border-box;
@@ -29,7 +30,7 @@
       z-index: 9999;
     }
 
-    .logo {
+    .lego {
       font-size: 20px;
       font-weight: bold;
       display: flex;
@@ -38,7 +39,7 @@
       color: #ff6a3d;
     }
 
-    .logo .icon {
+    .lego .icon {
       font-size: 32px;
       margin-right: 5px;
     }
@@ -62,6 +63,7 @@
     }
 
     .container {
+    
       background-color: #333;
       border-radius: 8px;
       box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
@@ -214,11 +216,63 @@
       font-weight: bold;
       z-index: 9999;
     }
+    /* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 3px 10px;
+    z-index: 1000;
+}
+
+.navbar .nav-links {
+    display: flex;
+}
+
+.navbar a {
+    color: #fff;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #ff4500;
+}
+
+
+.nav-logo img {
+    height: 60px; /* Adjust logo size */
+    
+}
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-logo">
+        <a href="./index.html">
+            <img src="logo1.png" alt="Stage Fright Logo" class="logo">
+        </a>
+    </div>
+    <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./Tour.html">Tour</a>
+        <a href="./Merch.html">Merch</a>
+        <a href="./About.html">About</a>
+        <a href="./index.html#contact-container">Contact</a>
+    </div>
+    
+    
+</div>
 
-  <div class="logo">
+  <div class="lego">
     <span class="icon fa fa-credit-card"></span> Checkout
   </div>
 
@@ -270,7 +324,7 @@
   </div>
 
   <div class="floating-cart" id="floatingCart">
-    <span id="cartCountFloat">0</span> Items
+    <span id="cartCountFloat">0 </span> . Items
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>

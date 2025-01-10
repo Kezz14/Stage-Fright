@@ -28,35 +28,14 @@
             <a href="./About.html">About</a>
             <a href=#contact-container>Contact</a>
         </div>
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cartCount" class="cart-badge">0</span>
-        </div>
-    </div>
-    
-        <div class="cart-icon" onclick="toggleCart()">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cartCount" class="cart-badge">0</span>
-        </div>
-    </div>
-    <
-     <!-- Cart Sidebar -->
-     <div class="cart-sidebar" id="cartSidebar" style="transform: translateX(100%);">
-        <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button onclick="toggleCart()">&times;</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Items will be dynamically added here -->
-        </div>
-        <div class="cart-total">
-            <p>Total: $<span id="cartTotal">0</span></p>
-            <a href="./checkout.html">
-                <button>Checkout</button>
-            </a>
-        </div>
         
     </div>
+    
+       
+    </div>
+     
+    
+    
 
     <!-- Header Section -->
     <header class="carousel-container">
@@ -113,6 +92,24 @@
         </div>
       </div>
       
+<!-- Life-Changing Music Experience Section -->
+<div class="life-changing-experience">
+    <h2>Life-Changing Music Experience</h2>
+    <p>  Experience Stage Fright live on tour and feel the power of music like never before!</p>
+    
+    <!-- Embedded Video -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="crowd.mp4" 
+                title="Stage Fright Tour Promo Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+    
+    <p>Don’t miss out! <a href="./Tour.html">Check out the tour dates</a> and grab your tickets now!</p>
+</div>
+
     <!-- Contact Form Section -->
     <div id="contact-container">
         <h1>&bull; Get in Touch &bull;</h1>
@@ -139,22 +136,40 @@
                 <textarea name="message" placeholder="Message" rows="4" required></textarea>
             </div>
             <button type="submit" id="submit-button">Send</button>
+            
         </form>
     </div>
  
-   
-    <div id="side-contact-card" class="hidden">
-        <h2>Contact Us</h2>
+    <div class="contact-card" id="contactCard">
+        <button class="close-btn" onclick="closeCard()">×</button>
+        <h1>Contact Us</h1>
         <p>For bookings, inquiries, or customer support, reach out to us:</p>
         <ul>
-            <li>Email: contact@stagefright.com</li>
-            <li>Phone: (123) 456-7890</li>
-            <li>Social Media: @StageFrightBand</li>
+            <p>Email: contact@stagefright.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Social Media: @StageFrightBand</p>
         </ul>
-        <button id="close-card">Close</button>
-    </div>
-
-  
+      </div>
+    
+      <script>
+        // Show card when the contact-container is in view
+        const contactContainer = document.getElementById('contact-container');
+        const contactCard = document.getElementById('contactCard');
+    
+        function closeCard() {
+          contactCard.classList.remove('show');
+        }
+    
+        function handleScroll() {
+          const rect = contactContainer.getBoundingClientRect();
+          const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+          if (isInView) {
+            contactCard.classList.add('show');
+          }
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+      </script>
 
 
     <!-- Footer -->
