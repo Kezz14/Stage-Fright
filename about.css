@@ -1,10 +1,16 @@
 /* About */
-
-#band-description {
-    margin: 20px;
+#about {
+    margin: 30px;
+}
+#band-description{
+    background-color: rgba(255, 61, 61, 0.7);
+    margin: 20px 0px;
+    padding: 10px 13px 35px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
     background-image: url(./assets/images/carousel2.png);
-    background-size: 50%;
-    
+    background-size: cover;
+    background-position: center;
 }
 
 #band-description p {

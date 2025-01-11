@@ -269,26 +269,27 @@ h2 {
     background-size: cover;
     background-position: center;
     transition: opacity 1s ease-in-out;
+
 }
 
 .item1 {
-    background-image: url('fullBand.png');
+    background-image: url('./assets/images/fullBand.png');
 }
 
 .item2 {
     .item1 {
-        background-image: url('fullBand2.png');
+        background-image: url('./assets/images/fullBand2.png');
         background-color: #000; /* Fallback color */
     }
-    
+
 }
 
 .item3 {
-    background-image: url('fullBand3.png');
+    background-image: url('./assets/images/fullBand3.png');
 }
 
 .item4 {
-    background-image: url('fullBand4.png');
+    background-image: url('./assets/images/fullBand4.png');
 }
 
 .content {

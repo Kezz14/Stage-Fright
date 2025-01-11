@@ -14,10 +14,7 @@ img {
 }
 
 div > .images, .text{
-    /* background-color: rgb(237, 237, 237); */
-    /* background-color: rgb(104, 101, 101); */
-    /* background-color: rgb(117, 109, 103); */
-    background-color: rgb(186, 175, 167);
+    background-color: rgb(239, 221, 209);
     transition: transform 0.3s;
 }
 
