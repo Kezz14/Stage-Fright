@@ -681,6 +681,10 @@ header a:hover {
     font-size: 1.2em;
 }
 
+.merch-section h3 {
+    padding-top: 10px;
+}
+
 /* Footer */
 footer {
     background-color: #000;
