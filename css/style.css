@@ -1,26 +1,3 @@
-/* General Styles */
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-}
-
-a {
-    text-decoration: none;
-}
-
-h1, h2, h3 {
-    font-weight: 700;
-    margin: 0 0 10px;
-}
-
-h2 {
-    padding-top: 60px;
-}
-
-.pg-name {
-    padding-top: 100px;
-}
 
 /* Navbar */
 .navbar {
@@ -254,53 +231,61 @@ h2 {
 }
 
 
-.carousel {
-    display: flex;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Container to hold the carousel */
+  .carousel-container {
     width: 100%;
+    height: 100vh; /* Set the height of the carousel to 100% of the viewport height */
+    overflow: hidden; /* Hide anything that exceeds the container */
+    position: relative;
+  }
+  
+  /* The carousel itself */
+  .carousel {
+    display: flex;
+    width: 100%; /* Adjust width based on the number of items (each item takes 100% width) */
     height: 100%;
-    overflow: hidden; /* Prevents content from spilling out */
-    position: relative; /* Ensures positioning for child elements */
+    position: relative;
     animation: slide 20s infinite;
-}
-
-.carousel-item {
-    flex: 0 0 100%; /* Ensures each item takes up exactly 100% of the width */
+  }
+  
+  /* Carousel items (images) */
+  .carousel-item {
+    flex: 0 0 100%; /* Each item will take 100% of the container width */
     height: 100%;
     background-size: cover;
     background-position: center;
     transition: opacity 1s ease-in-out;
-
-}
-
-.item1 {
+  }
+  
+  /* Background images for the items */
+  .item1 {
     background-image: url('../assets/images/carousel.png');
-}
-
-.item2 {
-    .item1 {
-        background-image: url('../assets/images/carousel2.png');
-        background-color: #000; /* Fallback color */
-    }
-
-}
-
-.item3 {
+  }
+  
+  .item2 {
+    background-image: url('../assets/images/carousel2.png');
+  }
+  
+  .item3 {
     background-image: url('../assets/images/carousel3.png');
-}
-
-.item4 {
+  }
+  
+  .item4 {
     background-image: url('../assets/images/carousel4.png');
-}
-
-.content {
-    position: absolute;
-    z-index: 2;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Animation for the Carousel with Pauses */
-@keyframes slide {
+  }
+  
+  /* Animation for sliding */
+  @keyframes slide {
     0% { transform: translateX(0%); }
     12.5% { transform: translateX(0%); } 
     25% { transform: translateX(-100%); }
@@ -310,9 +295,16 @@ h2 {
     75% { transform: translateX(-300%); }
     87.5% { transform: translateX(-300%); }
     100% { transform: translateX(0%); }
-}
-
-
+  }
+  
+  /* Optional content styling for text over images */
+  .content {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
 /* Tour Section */
 .tour-section {
     padding: 50px;
@@ -1168,4 +1160,4 @@ footer {
         .text-size-5 {
             font-size: 120% !important;
         }
-        
+       

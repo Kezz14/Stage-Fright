@@ -1,3 +1,6 @@
+window.onload = function () {
+    applySavedSettings();
+};
 console.log("Script loaded");
 
     // Initialize map with default coordinates
@@ -292,4 +295,78 @@ function toggleGrayscale() {
     } else {
         body.classList.remove('grayscale');
     }
+}
+// Apply saved settings on page load
+window.onload = function () {
+    applySavedSettings();
+};
+
+function applySavedSettings() {
+    // Text size
+    const textSize = localStorage.getItem('textSize');
+    if (textSize) {
+        adjustTextSize(textSize, false); // Don't save again
+    }
+
+    // Font style
+    const fontStyle = localStorage.getItem('fontStyle');
+    if (fontStyle) {
+        changeFont(fontStyle, false); // Don't save again
+    }
+
+    // High contrast
+    if (localStorage.getItem('highContrast') === 'true') {
+        toggleHighContrast(false); // Don't save again
+    }
+
+    // Grayscale
+    if (localStorage.getItem('grayscale') === 'true') {
+        toggleGrayscale(false); // Don't save again
+    }
+}
+
+// Adjust text size
+function adjustTextSize(level, save = true) {
+    document.body.classList.remove('text-size-1', 'text-size-2', 'text-size-3');
+    document.body.classList.add(`text-size-${level}`);
+    if (save) localStorage.setItem('textSize', level);
+}
+
+// Change font style
+function changeFont(fontType, save = true) {
+    document.body.classList.remove('font-serif', 'font-sans-serif');
+    if (fontType === 'serif') {
+        document.body.classList.add('font-serif');
+    } else if (fontType === 'sans-serif') {
+        document.body.classList.add('font-sans-serif');
+    }
+    if (save) localStorage.setItem('fontStyle', fontType);
+}
+
+// Toggle high contrast mode
+function toggleHighContrast(save = true) {
+    const body = document.body;
+    const isHighContrast = body.classList.toggle('high-contrast');
+    if (save) localStorage.setItem('highContrast', isHighContrast);
+}
+
+// Toggle grayscale mode
+function toggleGrayscale(save = true) {
+    const body = document.body;
+    const isGrayscale = body.classList.toggle('grayscale');
+    if (save) localStorage.setItem('grayscale', isGrayscale);
+}
+
+// Reset all settings
+function resetAccessibility() {
+    document.body.classList.remove(
+        'text-size-1',
+        'text-size-2',
+        'text-size-3',
+        'font-serif',
+        'font-sans-serif',
+        'high-contrast',
+        'grayscale'
+    );
+    localStorage.clear(); // Clear all saved settings
 }
