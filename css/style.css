@@ -818,7 +818,7 @@ footer {
 .band-blurb {
     background-color: rgba(255, 106, 61, 0.7);  /* Semi-transparent background color */
     color: #ffffff;
-    padding: 10px 13px 35px;  /* Reduced top padding */
+    padding: 25px 13px 35px;  /* Reduced top padding */
     text-align: center;
     font-family: 'Roboto', sans-serif;
     margin-top: 60px;  /* Push the section down */
