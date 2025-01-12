@@ -323,3 +323,38 @@ function resetAccessibility() {
         'grayscale'
     );
 }}
+function addToCart(itemName, price, imageUrl = 'assets/images/ticket.png') {
+    const numericPrice = parseFloat(price);
+    cart.push({ itemName, price: numericPrice, imageUrl });
+    cartCount = cart.length;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+    alert(`Added ${itemName} for $${numericPrice.toFixed(2)} to your cart!`);
+}
+
+function updateCartDisplay() {
+    const cartCountElement = document.getElementById('cartCount');
+    const cartItemsElement = document.getElementById('cartItems');
+    const cartTotalElement = document.getElementById('cartTotal');
+
+    cartCountElement.innerText = cartCount;
+    cartItemsElement.innerHTML = '';
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `
+            <img src="${item.imageUrl}" alt="${item.itemName}" class="cart-item-image">
+            <div class="cart-item-details">
+                <p>${item.itemName} - $${item.price.toFixed(2)}</p>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </div>
+        `;
+        cartItemsElement.appendChild(itemDiv);
+        total += item.price;
+    });
+
+    cartTotalElement.innerText = total.toFixed(2);
+}
