@@ -281,4 +281,15 @@ const sideCard = document.getElementById('side-contact-card');
             );
             document.getElementById("textResizeLabel").innerText = "Normal";
         }
-        
+        // Toggle grayscale mode
+function toggleGrayscale() {
+    const body = document.body;
+    const toolbar = document.getElementById('accessibilityToolbar');
+    
+    if (!body.classList.contains('grayscale')) {
+        body.classList.add('grayscale');
+        toolbar.classList.remove('grayscale'); // Exclude toolbar from grayscale
+    } else {
+        body.classList.remove('grayscale');
+    }
+}

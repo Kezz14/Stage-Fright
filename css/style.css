@@ -1022,23 +1022,23 @@ footer {
 
 /* High-Contrast Links */
 .high-contrast a {
-    color: #ff6a3d !important;        /* Bright orange links for clear distinction */
+    color: #0fffeb  !important;        /* Bright orange links for clear distinction */
     text-decoration: underline !important; /* Reinforce visibility */
     font-weight: bold !important;     /* Emphasize clickable links */
 }
 
 /* High-Contrast Buttons */
 .high-contrast button {
-    background-color: #444 !important; /* Dark gray buttons for contrast */
+    background-color: #020202 !important; /* Dark gray buttons for contrast */
     color: #fff !important;            /* White text for clarity */
-    border: 2px solid #ff6a3d !important; /* Bright orange border for emphasis */
+    border: 2px solid #0fffeb !important; /* Bright orange border for emphasis */
     font-weight: bold;                 /* Ensure buttons are visually prominent */
-    text-transform: uppercase;         /* Reinforce visibility through text styling */
+            /* Reinforce visibility through text styling */
     transition: background-color 0.3s ease; /* Smooth interaction feedback */
 }
 
 .high-contrast button:hover {
-    background-color: #ff6a3d !important; /* Highlight button when hovered */
+    background-color: #0fffeb  !important; /* Highlight button when hovered */
     color: #000 !important;              /* Invert colors for hover effect */
 }
 
@@ -1046,7 +1046,7 @@ footer {
 .high-contrast input, .high-contrast textarea, .high-contrast select {
     background-color: #222 !important;   /* Very dark background */
     color: #fff !important;              /* White text */
-    border: 2px solid #ff6a3d !important; /* Bright border for visibility */
+    border: 2px solid #0fffeb  !important; /* Bright border for visibility */
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;                  /* Retain modern design */
@@ -1055,13 +1055,13 @@ footer {
 .high-contrast input:focus, 
 .high-contrast textarea:focus, 
 .high-contrast select:focus {
-    outline: 2px solid #ff6a3d !important; /* Highlight focused elements */
+    outline: 2px solid#0fffeb  !important; /* Highlight focused elements */
 }
 
 /* High-Contrast Headings */
 .high-contrast h1, .high-contrast h2, .high-contrast h3, 
 .high-contrast h4, .high-contrast h5, .high-contrast h6 {
-    color: #ff6a3d !important;          /* Bright orange for headings */
+    color: #0fffeb !important;          /* Bright orange for headings */
     font-weight: bold;                  /* Reinforce hierarchy */
     text-transform: uppercase;          /* Increase visibility */
 }
@@ -1074,13 +1074,13 @@ footer {
 }
 
 .high-contrast th, .high-contrast td {
-    border: 1px solid #ff6a3d !important; /* Bright borders for table cells */
+    border: 1px solid #0fffeb !important; /* Bright borders for table cells */
     padding: 10px;
 }
 
 /* High-Contrast Icons */
 .high-contrast i, .high-contrast svg {
-    fill: #ff6a3d !important;           /* Bright orange for icons */
+    fill:#0fffeb  !important;           /* Bright orange for icons */
 }
 
 /* High-Contrast Forms */
@@ -1097,22 +1097,22 @@ footer {
 /* High-Contrast Notifications or Alerts */
 .high-contrast .alert {
     background-color: #444 !important;  /* Dark background */
-    color: #ff6a3d !important;          /* Bright text for attention */
-    border: 2px solid #ff6a3d !important; /* Bold border for focus */
+    color: #0fffeb !important;          /* Bright text for attention */
+    border: 2px solid #0fffeb  !important; /* Bold border for focus */
     padding: 15px;
     border-radius: 5px;
 }
 
 /* High-Contrast Focus Indicators */
 .high-contrast :focus {
-    outline: 3px solid #ff6a3d !important; /* Bright orange outline */
+    outline: 3px solid #0fffeb  !important; /* Bright orange outline */
     outline-offset: 2px;                  /* Add spacing around focus outline */
 }
 
 /* High-Contrast Hover Effects */
 .high-contrast a:hover, 
 .high-contrast button:hover {
-    background-color: #ff6a3d !important; /* Bright orange hover state */
+    background-color: #0fffeb !important; /* Bright orange hover state */
     color: #000 !important;              /* Contrast with hover background */
     text-decoration: none !important;    /* Remove underlines for hover state */
 }
@@ -1127,23 +1127,27 @@ footer {
 }
 
 .high-contrast ::-webkit-scrollbar-thumb {
-    background: #ff6a3d;
+    background: #0fffeb ;
     border-radius: 6px;
 }
 
 .high-contrast ::-webkit-scrollbar-thumb:hover {
-    background: #ff944d; /* Lighter orange for hover state */
+    background: #0fffeb ; /* Lighter orange for hover state */
 }
 
 
-        .grayscale {
-            filter: grayscale(100%);
-        }
+    
+/* Grayscale Mode */
+.grayscale {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    pointer-events: auto !important; /* Ensure interactivity is preserved */
+}
 
-        .focus-mode :focus {
-            outline: 3px solid #ff6a3d !important;
-        }
-
+        
         /* Text Size Adjustments */
         .text-size-1 {
             font-size: 70% !important;
