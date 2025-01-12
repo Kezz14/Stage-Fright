@@ -273,23 +273,23 @@ h2 {
 }
 
 .item1 {
-    background-image: url('./assets/images/fullBand.png');
+    background-image: url('../assets/images/carousel.png');
 }
 
 .item2 {
     .item1 {
-        background-image: url('./assets/images/fullBand2.png');
+        background-image: url('../assets/images/carousel2.png');
         background-color: #000; /* Fallback color */
     }
 
 }
 
 .item3 {
-    background-image: url('./assets/images/fullBand3.png');
+    background-image: url('../assets/images/carousel3.png');
 }
 
 .item4 {
-    background-image: url('./assets/images/fullBand4.png');
+    background-image: url('../assets/images/carousel4.png');
 }
 
 .content {
@@ -810,7 +810,7 @@ footer {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     margin-top: 60px;  /* Push the section down */
-    background-image: url('blurb.png');  /* Add your transparent image here */
+    background-image: url('../assets/images/blurb.png');  /* Add your transparent image here */
     background-size: cover;  /* Ensure the image covers the entire section */
     background-position: center;  /* Center the image */
 }
