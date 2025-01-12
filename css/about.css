@@ -1,4 +1,9 @@
 /* About */
+.about > .pg-name {
+    margin-top: 110px;
+    color: white;
+}
+
 #about {
     margin: 30px;
 }
