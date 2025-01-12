@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
   
+  
   <style>
     *, *:after, *:before {
       box-sizing: border-box;
@@ -251,9 +252,331 @@
     height: 60px; /* Adjust logo size */
     
 }
+/* Footer */
+footer {
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+ /* Accessibility Bubble */
+ .accessibility-bubble {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .accessibility-bubble:hover {
+            transform: scale(1.1);
+            background-color: #ff6a3d;
+        }
+
+        /* Accessibility Toolbar */
+        .accessibility-toolbar {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 350px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .toolbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toolbar-header h3 {
+            margin: 0;
+        }
+
+        .close-button {
+            background: none;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .toolbar-options div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .toolbar-options label {
+            font-size: 14px;
+        }
+
+        .toolbar-options button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .toolbar-options button:hover {
+            background-color: #ff6a3d;
+            color: #fff;
+        }
+
+        .text-resize-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .text-resize-wrapper span {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* Accessibility Features */
+       /* High-Contrast Mode */
+.high-contrast {
+    background-color: #000 !important; /* Pure black background */
+    color: #fff !important;           /* Pure white text */
+    filter: none !important;          /* Ensure no other filters interfere */
+}
+
+/* High-Contrast Links */
+.high-contrast a {
+    color: #0fffeb  !important;        /* Bright orange links for clear distinction */
+    text-decoration: underline !important; /* Reinforce visibility */
+    font-weight: bold !important;     /* Emphasize clickable links */
+}
+
+/* High-Contrast Buttons */
+.high-contrast button {
+    background-color: #020202 !important; /* Dark gray buttons for contrast */
+    color: #fff !important;            /* White text for clarity */
+    border: 2px solid #0fffeb !important; /* Bright orange border for emphasis */
+    font-weight: bold;                 /* Ensure buttons are visually prominent */
+            /* Reinforce visibility through text styling */
+    transition: background-color 0.3s ease; /* Smooth interaction feedback */
+}
+
+.high-contrast button:hover {
+    background-color: #0fffeb  !important; /* Highlight button when hovered */
+    color: #000 !important;              /* Invert colors for hover effect */
+}
+
+/* High-Contrast Inputs */
+.high-contrast input, .high-contrast textarea, .high-contrast select {
+    background-color: #222 !important;   /* Very dark background */
+    color: #fff !important;              /* White text */
+    border: 2px solid #0fffeb  !important; /* Bright border for visibility */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;                  /* Retain modern design */
+}
+
+.high-contrast input:focus, 
+.high-contrast textarea:focus, 
+.high-contrast select:focus {
+    outline: 2px solid#0fffeb  !important; /* Highlight focused elements */
+}
+
+/* High-Contrast Headings */
+.high-contrast h1, .high-contrast h2, .high-contrast h3, 
+.high-contrast h4, .high-contrast h5, .high-contrast h6 {
+    color: #0fffeb !important;          /* Bright orange for headings */
+    font-weight: bold;                  /* Reinforce hierarchy */
+    text-transform: uppercase;          /* Increase visibility */
+}
+
+/* High-Contrast Tables */
+.high-contrast table {
+    border: 2px solid #fff !important;  /* White borders for tables */
+    background-color: #000 !important;  /* Black background for contrast */
+    color: #fff !important;             /* White text for table content */
+}
+
+.high-contrast th, .high-contrast td {
+    border: 1px solid #0fffeb !important; /* Bright borders for table cells */
+    padding: 10px;
+}
+
+/* High-Contrast Icons */
+.high-contrast i, .high-contrast svg {
+    fill:#0fffeb  !important;           /* Bright orange for icons */
+}
+
+/* High-Contrast Forms */
+.high-contrast label {
+    font-weight: bold;                  /* Ensure labels are clear */
+    color: #fff !important;             /* White text for labels */
+}
+
+/* High-Contrast Borders */
+.high-contrast .bordered {
+    border: 2px solid #ff6a3d !important; /* Bright orange borders for emphasis */
+}
+
+/* High-Contrast Notifications or Alerts */
+.high-contrast .alert {
+    background-color: #444 !important;  /* Dark background */
+    color: #0fffeb !important;          /* Bright text for attention */
+    border: 2px solid #0fffeb  !important; /* Bold border for focus */
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* High-Contrast Focus Indicators */
+.high-contrast :focus {
+    outline: 3px solid #0fffeb  !important; /* Bright orange outline */
+    outline-offset: 2px;                  /* Add spacing around focus outline */
+}
+
+/* High-Contrast Hover Effects */
+.high-contrast a:hover, 
+.high-contrast button:hover {
+    background-color: #0fffeb !important; /* Bright orange hover state */
+    color: #000 !important;              /* Contrast with hover background */
+    text-decoration: none !important;    /* Remove underlines for hover state */
+}
+
+/* High-Contrast Scrollbars (Modern Browsers) */
+.high-contrast ::-webkit-scrollbar {
+    width: 12px;
+}
+
+.high-contrast ::-webkit-scrollbar-track {
+    background: #222;
+}
+
+.high-contrast ::-webkit-scrollbar-thumb {
+    background: #0fffeb ;
+    border-radius: 6px;
+}
+
+.high-contrast ::-webkit-scrollbar-thumb:hover {
+    background: #0fffeb ; /* Lighter orange for hover state */
+}
+
+
+    
+
+        
+        /* Text Size Adjustments */
+        .text-size-1 {
+            font-size: 70% !important;
+        }
+
+        .text-size-2 {
+            font-size: 80% !important;
+        }
+
+        .text-size-3 {
+            font-size: 100% !important;
+        }
+
+        .text-size-4 {
+            font-size: 110% !important;
+        }
+
+        .text-size-5 {
+            font-size: 120% !important;
+        }
+        .nav-links a {
+            text-decoration: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        
   </style>
 </head>
 <body>
+   <!-- Accessibility Bubble -->
+<div
+class="accessibility-bubble"
+onclick="toggleAccessibilityToolbar()"
+aria-label="Open Accessibility Toolbar"
+role="button"
+tabindex="0"
+>
+<i class="fas fa-universal-access"></i>
+</div>
+
+<!-- Accessibility Toolbar -->
+<div
+class="accessibility-toolbar"
+id="accessibilityToolbar"
+aria-label="Accessibility Toolbar"
+style="display: none;"
+>
+<div class="toolbar-header">
+    <h3>Accessibility Tools</h3>
+    <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
+        ✕
+    </button>
+</div>
+
+<div class="toolbar-options">
+    <!-- Text Resizing -->
+    <div>
+        <label for="textResize">Text Size:</label>
+        <div class="text-resize-wrapper">
+            <input
+                type="range"
+                id="textResize"
+                min="1"
+                max="5"
+                step="1"
+                value="3"
+                onchange="adjustTextSize(this.value)"
+                aria-label="Adjust Text Size"
+            />
+            <span id="textResizeLabel">Normal</span>
+        </div>
+    </div>
+
+   
+  
+    <!-- High Contrast Mode -->
+    <div>
+        <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
+            High Contrast
+        </button>
+    </div>
+
+    
+    
+
+    <!-- Reset Settings -->
+    <div>
+        <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
+            Reset
+        </button>
+    </div>
+</div>
+</div>
+
   <!-- Navbar -->
   <div class="navbar">
     <div class="nav-logo">
@@ -395,6 +718,14 @@
 
     updateCartDisplay();
   </script>
+   <!-- Footer -->
+   <footer>
+    <p>&copy; 2025 Stage Fright. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
 

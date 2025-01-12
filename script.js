@@ -252,11 +252,6 @@ const sideCard = document.getElementById('side-contact-card');
             document.getElementById("textResizeLabel").innerText = labels[level - 1];
         }
 
-        function changeFont(fontType) {
-            document.body.classList.toggle("font-serif", fontType === "serif");
-            document.body.classList.toggle("font-sans-serif", fontType === "sans-serif");
-        }
-
         function toggleHighContrast() {
             document.body.classList.toggle("high-contrast");
         }
@@ -276,30 +271,13 @@ const sideCard = document.getElementById('side-contact-card');
                 "text-size-3",
                 "text-size-4",
                 "text-size-5",
-                "font-serif",
-                "font-sans-serif",
+                
                 "high-contrast",
-                "grayscale",
-                "focus-mode"
+              
             );
             document.getElementById("textResizeLabel").innerText = "Normal";
         }
-        // Toggle grayscale mode
-function toggleGrayscale() {
-    const body = document.body;
-    const toolbar = document.getElementById('accessibilityToolbar');
-    
-    if (!body.classList.contains('grayscale')) {
-        body.classList.add('grayscale');
-        toolbar.classList.remove('grayscale'); // Exclude toolbar from grayscale
-    } else {
-        body.classList.remove('grayscale');
-    }
-}
-// Apply saved settings on page load
-window.onload = function () {
-    applySavedSettings();
-};
+ 
 
 function applySavedSettings() {
     // Text size
@@ -308,22 +286,13 @@ function applySavedSettings() {
         adjustTextSize(textSize, false); // Don't save again
     }
 
-    // Font style
-    const fontStyle = localStorage.getItem('fontStyle');
-    if (fontStyle) {
-        changeFont(fontStyle, false); // Don't save again
-    }
-
+  
     // High contrast
     if (localStorage.getItem('highContrast') === 'true') {
         toggleHighContrast(false); // Don't save again
     }
 
-    // Grayscale
-    if (localStorage.getItem('grayscale') === 'true') {
-        toggleGrayscale(false); // Don't save again
-    }
-}
+  
 
 // Adjust text size
 function adjustTextSize(level, save = true) {
@@ -332,16 +301,6 @@ function adjustTextSize(level, save = true) {
     if (save) localStorage.setItem('textSize', level);
 }
 
-// Change font style
-function changeFont(fontType, save = true) {
-    document.body.classList.remove('font-serif', 'font-sans-serif');
-    if (fontType === 'serif') {
-        document.body.classList.add('font-serif');
-    } else if (fontType === 'sans-serif') {
-        document.body.classList.add('font-sans-serif');
-    }
-    if (save) localStorage.setItem('fontStyle', fontType);
-}
 
 // Toggle high contrast mode
 function toggleHighContrast(save = true) {
@@ -350,12 +309,7 @@ function toggleHighContrast(save = true) {
     if (save) localStorage.setItem('highContrast', isHighContrast);
 }
 
-// Toggle grayscale mode
-function toggleGrayscale(save = true) {
-    const body = document.body;
-    const isGrayscale = body.classList.toggle('grayscale');
-    if (save) localStorage.setItem('grayscale', isGrayscale);
-}
+
 
 // Reset all settings
 function resetAccessibility() {
@@ -368,5 +322,4 @@ function resetAccessibility() {
         'high-contrast',
         'grayscale'
     );
-    localStorage.clear(); // Clear all saved settings
-}
+}}

@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="./css/style.css"/>
 </head>
 
 <body>
- 
- <!-- Accessibility Bubble -->
+     <!-- Accessibility Bubble -->
  <div
  class="accessibility-bubble"
  onclick="toggleAccessibilityToolbar()"
@@ -68,7 +66,6 @@
      </div>
 
     
-     
 
      <!-- Reset Settings -->
      <div>
@@ -78,13 +75,11 @@
      </div>
  </div>
 </div>
-
     <!-- Navbar -->
     <div class="navbar">
         <div class="nav-logo">
             <a href="./index.html">
                 <img src="assets/images/logo1.png" alt="Stage Fright Logo" class="logo">
-                <script src="script.js"></script>
             </a>
         </div>
         <div class="nav-links">
@@ -117,7 +112,6 @@
             </a>
         </div>
     </div>
-      
 
     <!-- Merch Section -->
     <main class="merch-section">
@@ -138,7 +132,7 @@
             <div class="grid">
                 <!-- Merch Items -->
                 <div class="item clothing">
-                    <img src="./assets/images/merch/T-Shirt.png" alt="T-Shirt">
+                    <img src="assets/images/merch/T-Shirt.png" alt="T-Shirt">
                     <h3>Stage Fright T-Shirt</h3>
                     <p>$25</p>
                     <select class="size-select">
@@ -150,7 +144,7 @@
                     <button onclick="addToCart('Stage Fright T-Shirt', 25)">Add to Cart</button>
                 </div>
                 <div class="item clothing">
-                    <img src="./assets/images/merch/hoodie2.jpeg" alt="T-Shirt">
+                    <img src="assets/images/merch/hoodie2.jpeg" alt="T-Shirt">
                     <h3>Stage Fright Hoodie</h3>
                     <p>$35</p>
                     <select class="size-select">
@@ -238,7 +232,6 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Stage Fright. All rights reserved.</p>
-        <script src="script.js"></script>
     </footer>
 
     <script>
@@ -319,6 +312,95 @@
             itemsContainer.innerHTML = '';
             items.forEach(item => itemsContainer.appendChild(item));
         }
+        function toggleAccessibilityToolbar() {
+            const toolbar = document.getElementById("accessibilityToolbar");
+            toolbar.style.display = toolbar.style.display === "none" ? "block" : "none";
+        }
+
+        function adjustTextSize(level) {
+            document.body.classList.remove(
+                "text-size-1",
+                "text-size-2",
+                "text-size-3",
+                "text-size-4",
+                "text-size-5"
+            );
+            document.body.classList.add(`text-size-${level}`);
+            const labels = ["Small", "Medium", "Normal", "Large", "Extra-Large"];
+            document.getElementById("textResizeLabel").innerText = labels[level - 1];
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle("high-contrast");
+        }
+
+        function toggleGrayscale() {
+            document.body.classList.toggle("grayscale");
+        }
+
+        function toggleKeyboardFocus() {
+            document.body.classList.toggle("focus-mode");
+        }
+
+        function resetAccessibility() {
+            document.body.classList.remove(
+                "text-size-1",
+                "text-size-2",
+                "text-size-3",
+                "text-size-4",
+                "text-size-5",
+                
+                "high-contrast",
+              
+            );
+            document.getElementById("textResizeLabel").innerText = "Normal";
+        }
+ 
+
+function applySavedSettings() {
+    // Text size
+    const textSize = localStorage.getItem('textSize');
+    if (textSize) {
+        adjustTextSize(textSize, false); // Don't save again
+    }
+
+  
+    // High contrast
+    if (localStorage.getItem('highContrast') === 'true') {
+        toggleHighContrast(false); // Don't save again
+    }
+
+  
+
+// Adjust text size
+function adjustTextSize(level, save = true) {
+    document.body.classList.remove('text-size-1', 'text-size-2', 'text-size-3');
+    document.body.classList.add(`text-size-${level}`);
+    if (save) localStorage.setItem('textSize', level);
+}
+
+
+// Toggle high contrast mode
+function toggleHighContrast(save = true) {
+    const body = document.body;
+    const isHighContrast = body.classList.toggle('high-contrast');
+    if (save) localStorage.setItem('highContrast', isHighContrast);
+}
+
+
+
+// Reset all settings
+function resetAccessibility() {
+    document.body.classList.remove(
+        'text-size-1',
+        'text-size-2',
+        'text-size-3',
+        'font-serif',
+        'font-sans-serif',
+        'high-contrast',
+        'grayscale'
+    );
+}}
     </script>
 </body>
 
