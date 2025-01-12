@@ -141,8 +141,9 @@
                         <option value="L">Large</option>
                         <option value="XL">Extra Large</option>
                     </select>
-                    <button onclick="addToCart('Stage Fright T-Shirt', 25)">Add to Cart</button>
+                    <button onclick="addToCart('Stage Fright T-Shirt', 25, 'assets/images/merch/T-Shirt.png')">Add to Cart</button>
                 </div>
+                
                 <div class="item clothing">
                     <img src="assets/images/merch/hoodie2.jpeg" alt="T-Shirt">
                     <h3>Stage Fright Hoodie</h3>
@@ -153,8 +154,9 @@
                         <option value="L">Large</option>
                         <option value="XL">Extra Large</option>
                     </select>
-                    <button onclick="addToCart('Stage Fright T-Shirt', 35)">Add to Cart</button>
+                    <button onclick="addToCart('Stage Fright Hoodie', 35, 'assets/images/merch/hoodie2.jpeg')">Add to Cart</button>
                 </div>
+                
                 <div class="item sold-out clothing">
                     <img src="./assets/images/merch/Hoodie.png" alt="Hoodie">
                     <h3>Stage Fright Hoodie</h3>
@@ -168,47 +170,54 @@
                     <span class="sold-out-message">Sold Out</span>
                     <button disabled>Sold Out</button>
                 </div>
+                
                 <div class="item miscellaneous">
                     <img src="./assets/images/merch/Stickers.jpeg" alt="Stickers">
                     <h3>Stage Fright Stickers</h3>
                     <p>$5</p>
-                    <button onclick="addToCart('Stage Fright Stickers', 5)">Add to Cart</button>
+                    <button onclick="addToCart('Stage Fright Stickers', 5, './assets/images/merch/Stickers.jpeg')">Add to Cart</button>
                 </div>
+                
                 <div class="item albums">
                     <img src="./assets/images/merch/Vinyl.png" alt="Vinyl">
                     <h3>Debut Vinyl</h3>
                     <p>$30</p>
-                    <button onclick="addToCart('Debut Vinyl', 30)">Add to Cart</button>
+                    <button onclick="addToCart('Debut Vinyl', 30, './assets/images/merch/Vinyl.png')">Add to Cart</button>
                 </div>
+                
                 <div class="item albums">
                     <img src="./assets/images/merch/RiseFromTheAshesAlbum.jpeg" alt="Vinyl">
-                    <h3>Rise from the ashes Vinyl</h3>
+                    <h3>Rise from the Ashes Vinyl</h3>
                     <p>$30</p>
-                    <button onclick="addToCart('Debut Vinyl', 30)">Add to Cart</button>
+                    <button onclick="addToCart('Rise from the Ashes Vinyl', 30, './assets/images/merch/RiseFromTheAshesAlbum.jpeg')">Add to Cart</button>
                 </div>
+                
                 <div class="item albums">
                     <img src="./assets/images/merch/EchoesOfTheStageAlbum.webp" alt="Vinyl">
                     <h3>Echoes of the Stage Vinyl</h3>
                     <p>$30</p>
-                    <button onclick="addToCart('Echoes of the Stage Vinyl', 30)">Add to Cart</button>
+                    <button onclick="addToCart('Echoes of the Stage Vinyl', 30, './assets/images/merch/EchoesOfTheStageAlbum.webp')">Add to Cart</button>
                 </div>
+                
                 <div class="item miscellaneous">
                     <img src="./assets/images/merch/cup.jpeg" alt="Mug">
                     <h3>Stage Fright Mug</h3>
                     <p>$12</p>
-                    <button onclick="addToCart('Stage Fright Mug', 12)">Add to Cart</button>
+                    <button onclick="addToCart('Stage Fright Mug', 12, './assets/images/merch/cup.jpeg')">Add to Cart</button>
                 </div>
+                
                 <div class="item miscellaneous">
                     <img src="./assets/images/merch/cup2.jpeg" alt="Mug">
                     <h3>Stage Fright Mug</h3>
                     <p>$12</p>
-                    <button onclick="addToCart('Stage Fright Mug', 12)">Add to Cart</button>
+                    <button onclick="addToCart('Stage Fright Mug', 12, './assets/images/merch/cup2.jpeg')">Add to Cart</button>
                 </div>
+                
                 <div class="item clothing">
                     <img src="./assets/images/merch/cap.jpeg" alt="T-Shirt">
                     <h3>Stage Fright T-Shirt</h3>
                     <p>$25</p>
-                    <button onclick="addToCart('Stage Fright T-Shirt', 25)">Add to Cart</button>
+                    <button onclick="addToCart('Stage Fright T-Shirt', 25, './assets/images/merch/cap.jpeg')">Add to Cart</button>
                 </div>
                 
                 <div class="item sold-out clothing">
@@ -224,6 +233,7 @@
                     <span class="sold-out-message">Sold Out</span>
                     <button disabled>Sold Out</button>
                 </div>
+                
                 <!-- Add other items similarly -->
             </div>
         </div>
@@ -248,14 +258,15 @@
             }
         }
 
-        function addToCart(itemName, price) {
-            const numericPrice = parseFloat(price);
-            cart.push({ itemName, price: numericPrice });
-            cartCount = cart.length;
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
-            alert(`Added ${itemName} for $${numericPrice.toFixed(2)} to your cart!`);
-        }
+        function addToCart(itemName, price, imageUrl) {
+    const numericPrice = parseFloat(price);
+    cart.push({ itemName, price: numericPrice, imageUrl });
+    cartCount = cart.length;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+    alert(`Added ${itemName} for $${numericPrice.toFixed(2)} to your cart!`);
+}
+
 
         function removeFromCart(index) {
             cart.splice(index, 1);
@@ -265,26 +276,32 @@
         }
 
         function updateCartDisplay() {
-            const cartCountElement = document.getElementById('cartCount');
-            const cartItemsElement = document.getElementById('cartItems');
-            const cartTotalElement = document.getElementById('cartTotal');
+    const cartCountElement = document.getElementById('cartCount');
+    const cartItemsElement = document.getElementById('cartItems');
+    const cartTotalElement = document.getElementById('cartTotal');
 
-            cartCountElement.innerText = cartCount;
-            cartItemsElement.innerHTML = '';
+    cartCountElement.innerText = cartCount;
+    cartItemsElement.innerHTML = '';
 
-            let total = 0;
+    let total = 0;
 
-            cart.forEach((item, index) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.classList.add('cart-item');
-                itemDiv.innerHTML = `${item.itemName} - $${item.price}
-                                    <button onclick="removeFromCart(${index})">Remove</button>`;
-                cartItemsElement.appendChild(itemDiv);
-                total += item.price;
-            });
+    cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `
+            <img src="${item.imageUrl}" alt="${item.itemName}" class="cart-item-image">
+            <div class="cart-item-details">
+                <p>${item.itemName} - $${item.price.toFixed(2)}</p>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </div>
+        `;
+        cartItemsElement.appendChild(itemDiv);
+        total += item.price;
+    });
 
-            cartTotalElement.innerText = total.toFixed(2);
-        }
+    cartTotalElement.innerText = total.toFixed(2);
+}
+
 
         function sortItems() {
             const sortValue = document.getElementById('sort').value;
@@ -401,6 +418,7 @@ function resetAccessibility() {
         'grayscale'
     );
 }}
+
     </script>
 </body>
 

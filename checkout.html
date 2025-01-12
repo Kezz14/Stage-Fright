@@ -6,6 +6,9 @@
   <title>Checkout</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   
   
   <style>
@@ -259,10 +262,10 @@ footer {
     padding: 20px;
     text-align: center;
 }
- /* Accessibility Bubble */
- .accessibility-bubble {
+  /* Accessibility Bubble */
+  .accessibility-bubble {
             position: fixed;
-            bottom: 90px;
+            bottom: 120px;
             right: 20px;
             width: 60px;
             height: 60px;
@@ -508,75 +511,90 @@ footer {
         a {
             text-decoration: none;
         }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+         
         
   </style>
 </head>
 <body>
-   <!-- Accessibility Bubble -->
-<div
-class="accessibility-bubble"
-onclick="toggleAccessibilityToolbar()"
-aria-label="Open Accessibility Toolbar"
-role="button"
-tabindex="0"
+     <!-- Accessibility Bubble -->
+ <div
+ class="accessibility-bubble"
+ onclick="toggleAccessibilityToolbar()"
+ aria-label="Open Accessibility Toolbar"
+ role="button"
+ tabindex="0"
 >
-<i class="fas fa-universal-access"></i>
+ <i class="fas fa-universal-access"></i>
 </div>
 
 <!-- Accessibility Toolbar -->
 <div
-class="accessibility-toolbar"
-id="accessibilityToolbar"
-aria-label="Accessibility Toolbar"
-style="display: none;"
+ class="accessibility-toolbar"
+ id="accessibilityToolbar"
+ aria-label="Accessibility Toolbar"
+ style="display: none;"
 >
-<div class="toolbar-header">
-    <h3>Accessibility Tools</h3>
-    <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
-        ✕
-    </button>
-</div>
+ <div class="toolbar-header">
+     <h3>Accessibility Tools</h3>
+     <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
+         ✕
+     </button>
+ </div>
 
-<div class="toolbar-options">
-    <!-- Text Resizing -->
-    <div>
-        <label for="textResize">Text Size:</label>
-        <div class="text-resize-wrapper">
-            <input
-                type="range"
-                id="textResize"
-                min="1"
-                max="5"
-                step="1"
-                value="3"
-                onchange="adjustTextSize(this.value)"
-                aria-label="Adjust Text Size"
-            />
-            <span id="textResizeLabel">Normal</span>
-        </div>
-    </div>
+ <div class="toolbar-options">
+     <!-- Text Resizing -->
+     <div>
+         <label for="textResize">Text Size:</label>
+         <div class="text-resize-wrapper">
+             <input
+                 type="range"
+                 id="textResize"
+                 min="1"
+                 max="5"
+                 step="1"
+                 value="3"
+                 onchange="adjustTextSize(this.value)"
+                 aria-label="Adjust Text Size"
+             />
+             <span id="textResizeLabel">Normal</span>
+         </div>
+     </div>
 
+    
    
-  
-    <!-- High Contrast Mode -->
-    <div>
-        <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
-            High Contrast
-        </button>
-    </div>
+     <!-- High Contrast Mode -->
+     <div>
+         <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
+             High Contrast
+         </button>
+     </div>
 
     
-    
 
-    <!-- Reset Settings -->
-    <div>
-        <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
-            Reset
-        </button>
-    </div>
+     <!-- Reset Settings -->
+     <div>
+         <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
+             Reset
+         </button>
+     </div>
+ </div>
 </div>
-</div>
-
   <!-- Navbar -->
   <div class="navbar">
     <div class="nav-logo">
@@ -717,6 +735,96 @@ style="display: none;"
     }
 
     updateCartDisplay();
+    function toggleAccessibilityToolbar() {
+            const toolbar = document.getElementById("accessibilityToolbar");
+            toolbar.style.display = toolbar.style.display === "none" ? "block" : "none";
+        }
+
+        function adjustTextSize(level) {
+            document.body.classList.remove(
+                "text-size-1",
+                "text-size-2",
+                "text-size-3",
+                "text-size-4",
+                "text-size-5"
+            );
+            document.body.classList.add(`text-size-${level}`);
+            const labels = ["Small", "Medium", "Normal", "Large", "Extra-Large"];
+            document.getElementById("textResizeLabel").innerText = labels[level - 1];
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle("high-contrast");
+        }
+
+        function toggleGrayscale() {
+            document.body.classList.toggle("grayscale");
+        }
+
+        function toggleKeyboardFocus() {
+            document.body.classList.toggle("focus-mode");
+        }
+
+        function resetAccessibility() {
+            document.body.classList.remove(
+                "text-size-1",
+                "text-size-2",
+                "text-size-3",
+                "text-size-4",
+                "text-size-5",
+                
+                "high-contrast",
+              
+            );
+            document.getElementById("textResizeLabel").innerText = "Normal";
+        }
+ 
+
+function applySavedSettings() {
+    // Text size
+    const textSize = localStorage.getItem('textSize');
+    if (textSize) {
+        adjustTextSize(textSize, false); // Don't save again
+    }
+
+  
+    // High contrast
+    if (localStorage.getItem('highContrast') === 'true') {
+        toggleHighContrast(false); // Don't save again
+    }
+
+  
+
+// Adjust text size
+function adjustTextSize(level, save = true) {
+    document.body.classList.remove('text-size-1', 'text-size-2', 'text-size-3');
+    document.body.classList.add(`text-size-${level}`);
+    if (save) localStorage.setItem('textSize', level);
+}
+
+
+// Toggle high contrast mode
+function toggleHighContrast(save = true) {
+    const body = document.body;
+    const isHighContrast = body.classList.toggle('high-contrast');
+    if (save) localStorage.setItem('highContrast', isHighContrast);
+}
+
+
+
+// Reset all settings
+function resetAccessibility() {
+    document.body.classList.remove(
+        'text-size-1',
+        'text-size-2',
+        'text-size-3',
+        'font-serif',
+        'font-sans-serif',
+        'high-contrast',
+        'grayscale'
+    );
+}}
+
   </script>
    <!-- Footer -->
    <footer>
