@@ -224,10 +224,79 @@ style="display: none;"
             <div class="input-group">
                 <textarea name="message" placeholder="Message" rows="4" required></textarea>
             </div>
+            
             <a href="./index.html"><button type="submit" id="submit-button">Send</button></a>
             
         </form>
     </div>
+    <!-- Thank You Popup -->
+<div id="thank-you-popup" class="popup">
+    <div class="popup-content">
+        <h2>Thank You!</h2>
+        <p>Your message has been sent. We will get back to you shortly.</p>
+        <button id="close-popup-button">Close</button>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background:black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 80%;
+        max-width: 400px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #close-popup-button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #ff6a3d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #close-popup-button:hover {
+        background-color: #e55a2d;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Show the popup
+        document.getElementById('thank-you-popup').style.display = 'flex';
+
+        // Redirect to index.html after a delay
+        setTimeout(function() {
+            window.location.href = './index.html';
+        }, 3000);
+    });
+
+    // Close popup manually
+    document.getElementById('close-popup-button').addEventListener('click', function() {
+        document.getElementById('thank-you-popup').style.display = 'none';
+    });
+</script>
  
    <!-- Contact Card HTML -->
    <div class="contact-card" id="contactCard">
