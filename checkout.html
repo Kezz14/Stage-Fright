@@ -651,6 +651,7 @@ footer {
 
           <form action="./index.html" method="post" id="contact-form">
             <input type="submit" value="Complete Purchase" class="btn">
+          
         </form>
         
 
@@ -733,7 +734,7 @@ footer {
         // Clear cart and redirect home after confetti
         localStorage.removeItem('cart');
         setTimeout(() => {
-          window.location.href = '/';  // Redirect to home page
+          window.location.href = '/index.html';  // Redirect to home page
         }, 5000);
       }, 1400);
     }

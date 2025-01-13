@@ -1194,9 +1194,9 @@ footer {
         }
         .thank-you-section {
             text-align: center;
-            margin: 40px 0;
-            padding: 40px;
-            background: linear-gradient(135deg, #ffd4c4, #fea382); /* Soft pastel orange for warmth */
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff6a3d, #e09494); /* Soft pastel orange for warmth */
             color: #fff;
             border-radius: 25px; /* Rounded corners for the section */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
@@ -1222,8 +1222,8 @@ footer {
         }
         
         .thank-you-photo {
-            max-width: 80%; /* Control width of the image */
-            height: auto; /* Adjust height automatically to maintain aspect ratio */
+            max-width: 30%; /* Control width of the image */
+            height: 30%; /* Adjust height automatically to maintain aspect ratio */
             border-radius: 20px; /* Rounded corners for the image */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
             transition: transform 0.3s ease-in-out; /* Smooth zoom effect on hover */
