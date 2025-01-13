@@ -375,3 +375,15 @@ function sendLove() {
         }, 5000);
     }
 }
+function sendLove() {
+    // Get the hearts container element
+    var hearts = document.getElementById('hearts');
+    
+    // Show the hearts
+    hearts.style.display = 'block';
+    
+    // Hide the hearts after 2 seconds (2000 milliseconds)
+    setTimeout(function() {
+        hearts.style.display = 'none';
+    }, 8000); // 2000 ms = 2 seconds
+}
