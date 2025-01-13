@@ -358,3 +358,20 @@ function updateCartDisplay() {
 
     cartTotalElement.innerText = total.toFixed(2);
 }
+function sendLove() {
+    const body = document.body;
+
+    // Create hearts
+    for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+        body.appendChild(heart);
+
+        // Remove heart after animation
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+}
