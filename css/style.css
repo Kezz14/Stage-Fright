@@ -30,6 +30,13 @@
     color: #ff4500;
 }
 
+@media (max-width: 600px) {
+    .navbar a {
+        margin: 0 5px;
+        font-size: .8em;
+    }
+}
+
 /* General Styling for the Cart Icon */
 /* Cart Icon */
 .cart-icon {
@@ -331,6 +338,12 @@ select {
 
 
 /* Tour Section Styling */
+.tour-container > .pg-name {
+    padding: 10px;
+    margin-top: 50px;
+}
+
+
 .tour-section {
     padding: 40px 20px;
     background-color: #f5f5f5;
@@ -673,6 +686,10 @@ header a:hover {
     padding-top: 10px;
 }
 
+.merch-section .pg-name {
+    margin-top: 80px;
+}
+
 /* Footer */
 footer {
     background-color: #000;
@@ -716,6 +733,7 @@ footer {
     background: none;
     outline: none;
     cursor: pointer;
+    padding-right: 25px;
   }
   
   .faq button:hover,
@@ -794,7 +812,7 @@ footer {
 .band-blurb {
     background-color: rgba(255, 106, 61, 0.7);  /* Semi-transparent background color */
     color: #ffffff;
-    padding: 10px 13px 35px;  /* Reduced top padding */
+    padding: 25px 13px 35px;  /* Reduced top padding */
     text-align: center;
     font-family: 'Roboto', sans-serif;
     margin-top: 60px;  /* Push the section down */
