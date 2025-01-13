@@ -1222,7 +1222,7 @@ footer {
         }
         
         .thank-you-photo {
-            max-width: 30%; /* Control width of the image */
+            max-width: 60%; /* Control width of the image */
             height: 30%; /* Adjust height automatically to maintain aspect ratio */
             border-radius: 20px; /* Rounded corners for the image */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
