@@ -1169,4 +1169,46 @@ footer {
         .cart-item-details {
             flex-grow: 1;
         }
-         
+        .thank-you-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f9c6d3, #f6a4b1); /* Soft pastel pinks for warmth */
+            color: #fff;
+            border-radius: 25px; /* Rounded corners for the section */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .thank-you-message {
+            margin-bottom: 20px; /* Space between the message and image */
+        }
+        
+        .thank-you-message h3 {
+            font-size: 2.5rem; /* Larger header for emphasis */
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #ffffff; /* White header */
+        }
+        
+        .thank-you-message p {
+            font-size: 1.2rem; /* Larger, readable text */
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ffffff; /* White text */
+        }
+        
+        .thank-you-photo {
+            max-width: 80%; /* Control width of the image */
+            height: auto; /* Adjust height automatically to maintain aspect ratio */
+            border-radius: 20px; /* Rounded corners for the image */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
+            transition: transform 0.3s ease-in-out; /* Smooth zoom effect on hover */
+            margin-top: 20px; /* Space between text and image */
+        }
+        
+        .thank-you-photo:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+        
+        
