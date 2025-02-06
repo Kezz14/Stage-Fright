@@ -1230,9 +1230,7 @@ footer {
             margin-top: 20px; /* Space between text and image */
         }
         
-        .thank-you-photo:hover {
-            transform: scale(1.05); /* Slight zoom effect */
-        }
+       
         
         .send-love-button {
             display: inline-block;
