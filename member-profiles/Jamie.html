@@ -4,13 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stage Fright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/profiles.css"/>
 
 
 </head>
 <body>
+<!-- Accessibility Bubble -->
+<div
+class="accessibility-bubble"
+onclick="toggleAccessibilityToolbar()"
+aria-label="Open Accessibility Toolbar"
+role="button"
+tabindex="0"
+>
+<i class="fas fa-universal-access"></i>
+</div>
+
+<!-- Accessibility Toolbar -->
+<div
+class="accessibility-toolbar"
+id="accessibilityToolbar"
+aria-label="Accessibility Toolbar"
+style="display: none;"
+>
+<div class="toolbar-header">
+    <h3>Accessibility Tools</h3>
+    <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
+        ✕
+    </button>
+</div>
+
+<div class="toolbar-options">
+    <!-- Text Resizing -->
+    <div>
+        <label for="textResize">Text Size:</label>
+        <div class="text-resize-wrapper">
+            <input
+                type="range"
+                id="textResize"
+                min="1"
+                max="5"
+                step="1"
+                value="3"
+                onchange="adjustTextSize(this.value)"
+                aria-label="Adjust Text Size"
+            />
+            <span id="textResizeLabel">Normal</span>
+        </div>
+    </div>
+
+   
+  
+    <!-- High Contrast Mode -->
+    <div>
+        <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
+            High Contrast
+        </button>
+    </div>
+
+    
+    
+
+    <!-- Reset Settings -->
+    <div>
+        <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
+            Reset
+        </button>
+    </div>
+</div>
+
+    </div>
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo1.png" alt="Stage Fright Logo" class="logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../Tour.html">Tour</a>
+                <a href="../Merch.html">Merch</a>
+                <a href="../About.html">About</a>
+                <a href="../index.html#contact-container">Contact</a>
+            </div>
+            
+        </div>
+    </div>
+
+
+
     <div class="flexbox">
-        <div class="images">
+        <div class="images" style="margin-top: 70px">
             <div class="row"><img src="../assets/images/members/Jamie 1.jpg" alt="Young Jamie looking into the bustling streets of New York"/></div>
             <div class="row"><img src="../assets/images/members/Jamie 2.jpg" alt="Young Jamie discovering a guitar in his father's closet"/></div>
             <div class="row"><img src="../assets/images/members/Jamie 3.jpg" alt="Teenage Jamie playing the electric guitar"/></div>
@@ -28,6 +114,12 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Stage Fright. All rights reserved.</p>
+    </footer>
+    
+    <script src="../script.js"></script>
 
 </body>
 </html>
