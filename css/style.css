@@ -1,7 +1,3 @@
-.body {
-    background-color: #000;
-}
-
 
 
 /* Navbar */
@@ -480,8 +476,8 @@ body {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-  background: #1c1c1c;
-  border: 1px solid #333;
+  background: #000000;
+  border: 1px solid #000000;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -505,10 +501,10 @@ input, select, textarea {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #444;
+  border: 1px solid #000000;
   border-radius: 4px;
   
-  color: #444 ;
+  color: #000000 ;
   font-size: 14px;
   font-family: inherit;
   transition: border 0.3s;
@@ -657,7 +653,7 @@ header a:hover {
     position: relative;
     text-align: center;
     overflow: hidden;
-    color: #333;
+    color: #000000;
 }
 
 /* Hover Effects */
