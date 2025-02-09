@@ -3,6 +3,13 @@
     text-align: center;
     padding: 20px;
 }
+.pg-name {
+    text-align: center; /* Ensures text is centered */
+    display: block; /* Makes sure it behaves as a block element */
+    width: 100%; /* Ensures full width for centering */
+    margin: 0 auto; /* Centers it horizontally */
+    padding-bottom: 10px; /* Adjust spacing from the top */
+}
 
 
 /* Member Section */
@@ -13,9 +20,12 @@
     gap: 15px;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Allows it to take the full available width */
+    width: 100%;
     max-width: 600px; /* Controls overall size */
     margin: auto; /* Centers the section */
+    padding-bottom: 40px; /* Add extra padding at the bottom */
+    padding-left: 10px; /* Add extra padding at the bottom */
+    padding-right: 10px; /* Add extra padding at the bottom */
 }
 
 
@@ -78,6 +88,11 @@
     align-items: center;
     text-align: center;
     border-radius: 15px;
+}
+.member {
+    width: 100%;
+    max-width: 250px; /* Controls member size */
+    margin: auto; /* Ensures they are centered inside the grid */
 }
 
 .member:hover .overlay {
