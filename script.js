@@ -443,3 +443,80 @@ function playAudio(audioId) {
         audio.pause();
     }
 }
+function toggleSongList(songListId) {
+    const songList = document.getElementById(songListId);
+    
+    // Toggle visibility
+    if (songList.style.display === "block") {
+        songList.style.display = "none";
+    } else {
+        songList.style.display = "block";
+    }
+}
+// Function to open the song modal
+function openSongModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
+
+// Function to close the song modal
+function closeSongModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+
+// Function to open the song modal
+function openSongModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('active'); // Add 'active' class to display modal
+}
+
+// Function to close the song modal
+function closeSongModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('active'); // Remove 'active' class to hide modal
+}
+
+// Close modal if the user clicks outside of it
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.song-modal');
+    modals.forEach(modal => {
+        if (event.target == modal) { // Close modal if user clicks outside modal content
+            closeSongModal(modal.id);
+        }
+    });
+}
+// Function to open the song modal
+function openSongModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('active'); // Add 'active' class to display modal
+}
+
+// Function to close the song modal
+function closeSongModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('active'); // Remove 'active' class to hide modal
+}
+
+// Close modal if the user clicks outside of it
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.song-modal');
+    modals.forEach(modal => {
+        if (event.target == modal) { // Close modal if user clicks outside modal content
+            closeSongModal(modal.id);
+        }
+    });
+}
+// Function to play audio when "Listen Now" button is clicked
+function playAudio(audioId) {
+    var audioElement = document.getElementById(audioId);
+    // Pause all other audio elements before playing the new one
+    const allAudios = document.querySelectorAll("audio");
+    allAudios.forEach(audio => audio.pause());
+    
+    // Play the selected audio
+    if (audioElement) {
+        audioElement.play();
+    }
+}

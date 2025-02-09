@@ -98,86 +98,149 @@
         </div>
     </div>
     
-     <!-- Discography Section -->
-    <section class="discography">
-        <h1 class="pg-name">Discography</h1>
-        <div class="album-grid">
-            <!-- Album 1 -->
-            <div class="album-item">
-                <div class="album-cover">
-                    <img src="assets/images/merch/RiseFromTheAshesAlbum.jpeg" alt="Album 1">
-                    <div class="album-details">
-                        <h3>Echoes of the Stage</h3>
-                        <p>Released: 2025</p>
-                        <p>Genre: Rock, Alternative</p>
-                        <button class="album-button" onclick="playAudio('audio1')">Listen Now</button>
-                    </div>
-                </div>
-                <audio id="audio1">
-                    <source src="assets/Black Clouds.m4a" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
+ <!-- Discography Section -->
+ <section class="discography">
+    <h1 class="pg-name">Discography</h1>
+    <div class="album-grid">
+        <!-- Album 1 -->
+        <div class="album-item">
+            <div class="album-cover">
+                <img src="assets/images/merch/EchoesOfTheStageAlbum.webp" alt="Album 1">
+                <div class="album-details">
+                    <h3>Echoes Of The Stage </h3>
+                    <p>Released: 2025</p>
+                    <p>Genre: Rock, Alternative</p>
+                    <button class="album-button" onclick="playAudio('audio1')">Listen Now</button>
 
-            <!-- Album 2 -->
-            <div class="album-item">
-                <div class="album-cover">
-                    <img src="assets/images/merch/sf.png" alt="Album 2">
-                    <div class="album-details">
-                        <h3>Into the Spotlight</h3>
-                        <p>Released: 2023</p>
-                        <p>Genre: Pop, Rock</p>
-                        <button class="album-button" onclick="playAudio('audio2')">Listen Now</button>
-                    </div>
+                    <button class="show-songs-button" onclick="openSongModal('song-modal1')">Show Songs</button>
                 </div>
-                <audio id="audio2">
-                    <source src="assets/audio/into-the-spotlight.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
             </div>
-
-            <!-- Album 3 -->
-            <div class="album-item">
-                <div class="album-cover">
-                    <img src="assets/images/merch/EchoesOfTheStageAlbum.webp" alt="Album 3">
-                    <div class="album-details">
-                        <h3>Reverb</h3>
-                        <p>Released: 2021</p>
-                        <p>Genre: Indie Rock</p>
-                        <button class="album-button" onclick="playAudio('audio3')">Listen Now</button>
-                    </div>
-                </div>
-                <audio id="audio3">
-                    <source src="assets/audio/reverb.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-
-            <!-- Album 4 -->
-            <div class="album-item">
-                <div class="album-cover">
-                    <img src="assets/images/merch/sf.png" alt="Album 4">
-                    <div class="album-details">
-                        <h3>Unplugged</h3>
-                        <p>Released: 2019</p>
-                        <p>Genre: Acoustic, Indie</p>
-                        <button class="album-button" onclick="playAudio('audio4')">Listen Now</button>
-                    </div>
-                </div>
-                <audio id="audio4">
-                    <source src="assets/audio/unplugged.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
+            <audio id="audio1">
+                <source src="assets/Black Clouds.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Stage Fright. All rights reserved.</p>
-    </footer>
+        <!-- Album 2 -->
+        <div class="album-item">
+            <div class="album-cover">
+                <img src="assets/images/merch/RiseFromTheAshesAlbum.jpeg" alt="Album 2">
+                <div class="album-details">
+                    <h3>Into the Spotlight</h3>
+                    <p>Released: 2023</p>
+                    <p>Genre: Pop, Rock</p>
+                    <button class="album-button" onclick="playAudio('audio2')">Listen Now</button>
+                    <button class="show-songs-button" onclick="openSongModal('song-modal2')">Show Songs</button>
+                </div>
+            </div>
+            <audio id="audio2">
+                <source src="assets/audio/into-the-spotlight.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- Album 3 -->
+        <div class="album-item">
+            <div class="album-cover">
+                <img src="assets/images/merch/EchoesOfTheStageAlbum.webp" alt="Album 3">
+                <div class="album-details">
+                    <h3>Reverb</h3>
+                    <p>Released: 2021</p>
+                    <p>Genre: Indie Rock</p>
+                    <button class="album-button" onclick="playAudio('audio3')">Listen Now</button>
+                    <button class="show-songs-button" onclick="openSongModal('song-modal3')">Show Songs</button>
+                </div>
+            </div>
+            <audio id="audio3">
+                <source src="assets/audio/reverb.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Album 4 -->
+        <div class="album-item">
+            <div class="album-cover">
+                <img src="assets/images/merch/sf.png" alt="Album 4">
+                <div class="album-details">
+                    <h3>Stage Fright</h3>
+                    <p>Released: 2019</p>
+                    <p>Genre: Acoustic, Indie</p>
+                    <button class="album-button" onclick="playAudio('audio4')">Listen Now</button>
+                    <button class="show-songs-button" onclick="openSongModal('song-modal4')">Show Songs</button>
+                </div>
+            </div>
+            <audio id="audio4">
+                <source src="assets/audio/unplugged.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+</section>
+
+<!-- Song List Modals (for each album) -->
+<div id="song-modal1" class="song-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSongModal('song-modal1')">&times;</span>
+        <h3>Echoes of the Stage - Tracklist</h3>
+        <ul>
+            <li>Track 1: Opening Act</li>
+            <li>Track 2: Stage Lights</li>
+            <li>Track 3: The Sound of Silence</li>
+            <li>Track 4: Echoes</li>
+            <li>Track 5: Final Encore</li>
+        </ul>
+    </div>
+</div>
+
+<div id="song-modal2" class="song-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSongModal('song-modal2')">&times;</span>
+        <h3>Into the Spotlight - Tracklist</h3>
+        <ul>
+            <li>Track 1: Spotlight</li>
+            <li>Track 2: Shine Bright</li>
+            <li>Track 3: On Fire</li>
+            <li>Track 4: High Expectations</li>
+            <li>Track 5: Let It Go</li>
+        </ul>
+    </div>
+</div>
+
+<div id="song-modal3" class="song-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSongModal('song-modal3')">&times;</span>
+        <h3>Reverb - Tracklist</h3>
+        <ul>
+            <li>Track 1: Sound Waves</li>
+            <li>Track 2: Echo Chamber</li>
+            <li>Track 3: Reverb</li>
+            <li>Track 4: Amplify</li>
+            <li>Track 5: Last Call</li>
+        </ul>
+    </div>
+</div>
+
+<div id="song-modal4" class="song-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSongModal('song-modal4')">&times;</span>
+        <h3>Unplugged - Tracklist</h3>
+        <ul>
+            <li>Track 1: Heartbeat</li>
+            <li>Track 2: Quiet Moments</li>
+            <li>Track 3: Serenade</li>
+            <li>Track 4: Into the Wild</li>
+            <li>Track 5: Sunrise</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Stage Fright. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
