@@ -639,61 +639,96 @@ header a:hover {
     background-color: #e63e00;
 }
 
-/* Grid Layout for Merch */
+/* Advanced Grid Layout */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    padding: 20px;
 }
 
+/* Item Box */
 .item {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
     color: #333;
+}
+
+/* Hover Effects */
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .item img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 6px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.item:hover {
-    transform: translateY(-10px);
+.item:hover img {
+    transform: scale(1.05);
 }
 
+/* Button Styling */
 .item button {
     margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #ff4500;
+    padding: 10px 18px;
+    background-color: #ff6a3d;
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
 .item button:hover {
     background-color: #e63e00;
 }
+
+/* Sold-Out Styling */
 .sold-out {
-    opacity: 0.5;
-    pointer-events: none; /* Disable interactions */
+    position: relative;
+    pointer-events: none;
 }
 
-.sold-out .sold-out-message {
-    color: red;
+.sold-out img {
+    filter: grayscale(70%) brightness(80%);
+}
+
+.sold-out button {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Size Selector */
+.size-select {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Badge Styling */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff4500;
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.9em;
     font-weight: bold;
-    font-size: 1.2em;
+    border-radius: 5px;
 }
 
-.merch-section h3 {
-    padding-top: 10px;
-}
-
-.merch-section .pg-name {
-    margin-top: 80px;
-}
 
 /* Footer */
 footer {

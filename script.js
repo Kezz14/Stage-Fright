@@ -387,3 +387,39 @@ function sendLove() {
         hearts.style.display = 'none';
     }, 8000); // 2000 ms = 2 seconds
 }
+// Member Details
+const memberDetails = {
+    alex: {
+        title: "Alex",
+        bio: "Alex is the bassist of Stage Fright, providing the backbone for the band's sound.",
+        role: "Bassist"
+    },
+    jamie: {
+        title: "Jamie",
+        bio: "Jamie is the drummer, keeping the beat and bringing energy to the stage.",
+        role: "Drummer"
+    },
+    taylor: {
+        title: "Taylor",
+        bio: "Taylor is the guitarist, the musical force behind our band's rocking sound.",
+        role: "Guitarist"
+    },
+    morgan: {
+        title: "Morgan",
+        bio: "Morgan is the lead guitarist, adding fire and passion to every song.",
+        role: "Lead Guitarist"
+    }
+};
+
+// Show Modal with Member Info
+function showMemberDetails(memberId) {
+    const member = memberDetails[memberId];
+    document.getElementById("modal-title").textContent = member.title;
+    document.getElementById("modal-bio").textContent = member.bio;
+    document.getElementById("member-modal").style.display = "flex";
+}
+
+// Close Modal
+function closeModal() {
+    document.getElementById("member-modal").style.display = "none";
+}
