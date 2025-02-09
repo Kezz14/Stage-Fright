@@ -1223,67 +1223,69 @@ footer {
         .cart-item-details {
             flex-grow: 1;
         }
-        .thank-you-section {
-            text-align: center;
-            margin: 10px 0; /* Reduced margin */
-            padding: 15px; /* Reduced padding */
-            background: linear-gradient(135deg, #ff6a3d, #e09494); /* Soft pastel orange for warmth */
-            color: #fff;
-            border-radius: 15px; /* Slightly smaller rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .thank-you-message {
-            margin-bottom: 50px; /* Reduced space between the message and image */
-        }
-        
-        .thank-you-message h3 {
-            font-size: 2rem; /* Smaller header */
-            margin-bottom: 10px; /* Reduced margin */
-            font-weight: 700;
-            color: #ffffff; /* White header */
-        }
-        
-        .thank-you-message p {
-            font-size: 1rem; /* Smaller text */
-            line-height: 1.4; /* Adjusted line height */
-            margin-bottom: 15px; /* Reduced margin */
-            color: #ffffff; /* White text */
-        }
-        
-        .thank-you-photo {
-            max-width: 50%; /* Smaller image width */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 15px; /* Slightly smaller rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-            transition: transform 0.3s ease-in-out; /* Smooth zoom effect on hover */
-            margin-top: 15px; /* Reduced space between text and image */
-        }
-        
-       
-        
-        .send-love-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            color: white;
-            background-color: #e63946;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        
-        .send-love-button:hover {
-            background-color: #ff6a3d;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-        }
+       /* Thank You Section */
+/* Thank You Section */
+.thank-you-section {
+    text-align: center;
+    margin: 10px 0;
+
+    background: transparent; /* Removed background to focus on the image */
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Image Styling */
+.thank-you-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    margin-bottom: 20px;
+}
+
+/* Send Love Button */
+.send-love-button {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the button */
+    padding: 1em 2em; /* Use relative units for padding */
+    color: white;
+    background-color: #e63946;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    max-width: 200px; /* Limit the width on larger screens */
+    width: 90%; /* Make it responsive on smaller screens */
+    margin: 0 auto;
+}
+
+.send-love-button:hover {
+    background-color: #ff6a3d;
+    transform: translate(-50%, -50%) translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+    .send-love-button {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        padding: 0.8em 1.5em; /* Adjust padding on small screens */
+    }
+}
+
+
 	/* customizable heart styling */
 	.heart {
         color: #800000;

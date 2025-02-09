@@ -362,7 +362,7 @@ function sendLove() {
     const body = document.body;
 
     // Create hearts
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.style.left = Math.random() * 100 + 'vw';
@@ -387,6 +387,7 @@ function sendLove() {
         hearts.style.display = 'none';
     }, 8000); // 2000 ms = 2 seconds
 }
+
 // Member Details
 const memberDetails = {
     alex: {
@@ -422,4 +423,23 @@ function showMemberDetails(memberId) {
 // Close Modal
 function closeModal() {
     document.getElementById("member-modal").style.display = "none";
+}
+function playAudio(audioId) {
+    const audio = document.getElementById(audioId);
+    
+    // Stop any other audio currently playing
+    const allAudios = document.querySelectorAll('audio');
+    allAudios.forEach(aud => {
+        if (aud !== audio) {
+            aud.pause();
+            aud.currentTime = 0;
+        }
+    });
+
+    // Play the selected audio
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
 }

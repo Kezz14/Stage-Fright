@@ -1,0 +1,161 @@
+/* General Layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+/* Discography Section */
+.discography {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.pg-name {
+    font-size: 2.5rem;
+    color: #ff6a3d;
+    margin-bottom: 30px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Album Styling */
+.album-item {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.album-item:hover {
+    transform: scale(1.05);
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.album-item:hover .album-cover img {
+    opacity: 0.8;
+}
+
+/* Album Details Styling */
+.album-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 100%;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.album-item:hover .album-details {
+    opacity: 1;
+}
+
+.album-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.album-details p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* Button Styling */
+.album-button {
+    padding: 10px 20px;
+    background-color: #ff6a3d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.album-button:hover {
+    background-color: #e63946;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .album-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+/* Album Styling */
+.album-item {
+    position: relative;
+    width: 250px; /* Set a fixed width */
+    height: 250px; /* Set a fixed height to make it square */
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the content */
+}
+
+/* To maintain a square and prevent distortion of images */
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fills the square without stretching */
+    transition: opacity 0.3s ease;
+}
+
+.album-item:hover {
+    transform: scale(1.05);
+}
+
+/* Album Details Styling */
+.album-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 100%;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.album-item:hover .album-details {
+    opacity: 1;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Fright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/disco.css"/>
+
+</head>
+
+<body>
+     <!-- Accessibility Bubble -->
+ <div
+ class="accessibility-bubble"
+ onclick="toggleAccessibilityToolbar()"
+ aria-label="Open Accessibility Toolbar"
+ role="button"
+ tabindex="0"
+>
+ <i class="fas fa-universal-access"></i>
+</div>
+
+<!-- Accessibility Toolbar -->
+<div
+ class="accessibility-toolbar"
+ id="accessibilityToolbar"
+ aria-label="Accessibility Toolbar"
+ style="display: none;"
+>
+ <div class="toolbar-header">
+     <h3>Accessibility Tools</h3>
+     <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
+         ✕
+     </button>
+ </div>
+
+ <div class="toolbar-options">
+     <!-- Text Resizing -->
+     <div>
+         <label for="textResize">Text Size:</label>
+         <div class="text-resize-wrapper">
+             <input
+                 type="range"
+                 id="textResize"
+                 min="1"
+                 max="5"
+                 step="1"
+                 value="3"
+                 onchange="adjustTextSize(this.value)"
+                 aria-label="Adjust Text Size"
+             />
+             <span id="textResizeLabel">Normal</span>
+         </div>
+     </div>
+
+    
+   
+     <!-- High Contrast Mode -->
+     <div>
+         <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
+             High Contrast
+         </button>
+     </div>
+
+    
+
+     <!-- Reset Settings -->
+     <div>
+         <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
+             Reset
+         </button>
+     </div>
+ </div>
+</div>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-logo">
+            <a href="./index.html">
+                <img src="assets/images/logo1.png" alt="Stage Fright Logo" class="logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./Tour.html">Tour</a>
+            <a href="./Merch.html">Merch</a>
+            <a href="./About.html">About</a>
+            <a href="./index.html#contact-container">Contact</a>
+        </div>
+        
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+    </div>
+    
+     <!-- Discography Section -->
+    <section class="discography">
+        <h1 class="pg-name">Discography</h1>
+        <div class="album-grid">
+            <!-- Album 1 -->
+            <div class="album-item">
+                <div class="album-cover">
+                    <img src="assets/images/merch/RiseFromTheAshesAlbum.jpeg" alt="Album 1">
+                    <div class="album-details">
+                        <h3>Echoes of the Stage</h3>
+                        <p>Released: 2025</p>
+                        <p>Genre: Rock, Alternative</p>
+                        <button class="album-button" onclick="playAudio('audio1')">Listen Now</button>
+                    </div>
+                </div>
+                <audio id="audio1">
+                    <source src="assets/Black Clouds.m4a" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <!-- Album 2 -->
+            <div class="album-item">
+                <div class="album-cover">
+                    <img src="assets/images/merch/sf.png" alt="Album 2">
+                    <div class="album-details">
+                        <h3>Into the Spotlight</h3>
+                        <p>Released: 2023</p>
+                        <p>Genre: Pop, Rock</p>
+                        <button class="album-button" onclick="playAudio('audio2')">Listen Now</button>
+                    </div>
+                </div>
+                <audio id="audio2">
+                    <source src="assets/audio/into-the-spotlight.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <!-- Album 3 -->
+            <div class="album-item">
+                <div class="album-cover">
+                    <img src="assets/images/merch/EchoesOfTheStageAlbum.webp" alt="Album 3">
+                    <div class="album-details">
+                        <h3>Reverb</h3>
+                        <p>Released: 2021</p>
+                        <p>Genre: Indie Rock</p>
+                        <button class="album-button" onclick="playAudio('audio3')">Listen Now</button>
+                    </div>
+                </div>
+                <audio id="audio3">
+                    <source src="assets/audio/reverb.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <!-- Album 4 -->
+            <div class="album-item">
+                <div class="album-cover">
+                    <img src="assets/images/merch/sf.png" alt="Album 4">
+                    <div class="album-details">
+                        <h3>Unplugged</h3>
+                        <p>Released: 2019</p>
+                        <p>Genre: Acoustic, Indie</p>
+                        <button class="album-button" onclick="playAudio('audio4')">Listen Now</button>
+                    </div>
+                </div>
+                <audio id="audio4">
+                    <source src="assets/audio/unplugged.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Stage Fright. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
