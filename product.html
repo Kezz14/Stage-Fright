@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="./css/product.css">
+
+    <link rel="stylesheet" href="./css/style.css"/>
+
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Fright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="./css/style.css"/>
+</head>
+
+<body>
+     <!-- Accessibility Bubble -->
+ <div
+ class="accessibility-bubble"
+ onclick="toggleAccessibilityToolbar()"
+ aria-label="Open Accessibility Toolbar"
+ role="button"
+ tabindex="0"
+>
+ <i class="fas fa-universal-access"></i>
+</div>
+
+<!-- Accessibility Toolbar -->
+<div
+ class="accessibility-toolbar"
+ id="accessibilityToolbar"
+ aria-label="Accessibility Toolbar"
+ style="display: none;"
+>
+ <div class="toolbar-header">
+     <h3>Accessibility Tools</h3>
+     <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
+         ✕
+     </button>
+ </div>
+
+ <div class="toolbar-options">
+     <!-- Text Resizing -->
+     <div>
+         <label for="textResize">Text Size:</label>
+         <div class="text-resize-wrapper">
+             <input
+                 type="range"
+                 id="textResize"
+                 min="1"
+                 max="5"
+                 step="1"
+                 value="3"
+                 onchange="adjustTextSize(this.value)"
+                 aria-label="Adjust Text Size"
+             />
+             <span id="textResizeLabel">Normal</span>
+         </div>
+     </div>
+
+    
+   
+     <!-- High Contrast Mode -->
+     <div>
+         <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
+             High Contrast
+         </button>
+     </div>
+
+    
+
+     <!-- Reset Settings -->
+     <div>
+         <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
+             Reset
+         </button>
+     </div>
+ </div>
+</div>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-logo">
+            <a href="./index.html">
+                <img src="assets/images/logo1.png" alt="Stage Fright Logo" class="logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./Tour.html">Tour</a>
+            <a href="./Merch.html">Merch</a>
+            <a href="./About.html">About</a>
+            <a href="./index.html#contact-container">Contact</a>
+        </div>
+        
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+    </div>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar" style="transform: translateX(100%);">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <p>Total: $<span id="cartTotal">0</span></p>
+            <a href="./checkout.html">
+                <button>Checkout</button>
+            </a>
+        </div>
+    </div>
+
+        <p id="productPrice"></p>
+        <button onclick="addToCartFromDetails()">Add to Cart</button>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                price: params.get('price'),
+                image: params.get('image')
+            };
+        }
+
+        function loadProduct() {
+            const product = getQueryParams();
+            document.getElementById("productName").innerText = product.name;
+            document.getElementById("productPrice").innerText = `$${product.price}`;
+            document.getElementById("mainImage").src = product.image;
+            document.getElementById("angle1").src = product.image.replace('.jpeg', '-1.jpeg'); 
+            document.getElementById("angle2").src = product.image.replace('.jpeg', '-2.jpeg');
+            document.getElementById("angle3").src = product.image.replace('.jpeg', '-3.jpeg');
+        }
+
+        function changeMainImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+
+        function addToCartFromDetails() {
+            const product = getQueryParams();
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ itemName: product.name, price: parseFloat(product.price), imageUrl: product.image });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} added to cart!`);
+        }
+
+        window.onload = loadProduct;
+    </script>
+</body>
+</html>
+
+</script>
+
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Stage Fright. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>

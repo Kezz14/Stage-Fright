@@ -1194,40 +1194,40 @@ footer {
         }
         .thank-you-section {
             text-align: center;
-            margin: 20px 0;
-            padding: 20px;
+            margin: 10px 0; /* Reduced margin */
+            padding: 15px; /* Reduced padding */
             background: linear-gradient(135deg, #ff6a3d, #e09494); /* Soft pastel orange for warmth */
             color: #fff;
-            border-radius: 25px; /* Rounded corners for the section */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+            border-radius: 15px; /* Slightly smaller rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
             font-family: 'Poppins', sans-serif;
         }
         
         .thank-you-message {
-            margin-bottom: 150px; /* Space between the message and image */
+            margin-bottom: 50px; /* Reduced space between the message and image */
         }
         
         .thank-you-message h3 {
-            font-size: 2.5rem; /* Larger header for emphasis */
-            margin-bottom: 15px;
+            font-size: 2rem; /* Smaller header */
+            margin-bottom: 10px; /* Reduced margin */
             font-weight: 700;
             color: #ffffff; /* White header */
         }
         
         .thank-you-message p {
-            font-size: 1.2rem; /* Larger, readable text */
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1rem; /* Smaller text */
+            line-height: 1.4; /* Adjusted line height */
+            margin-bottom: 15px; /* Reduced margin */
             color: #ffffff; /* White text */
         }
         
         .thank-you-photo {
-            max-width: 60%; /* Control width of the image */
-            height: 60%; /* Adjust height automatically to maintain aspect ratio */
-            border-radius: 20px; /* Rounded corners for the image */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
+            max-width: 50%; /* Smaller image width */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 15px; /* Slightly smaller rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow */
             transition: transform 0.3s ease-in-out; /* Smooth zoom effect on hover */
-            margin-top: 20px; /* Space between text and image */
+            margin-top: 15px; /* Reduced space between text and image */
         }
         
        
@@ -1277,4 +1277,101 @@ footer {
     font-size: 24px;
     color: red;
     margin: 5px;
+}
+.gift_section {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  
+  .gift_section .box {
+    background-color: #6929a5;
+    border-radius: 15px;
+    color: #ffffff;
+  }
+  
+  .gift_section .row {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .gift_section .img-box {
+    padding: 60px 0 60px 25px;
+  }
+  
+  .gift_section .img-box img {
+    width: 100%;
+  }
+  
+  .gift_section .detail-box {
+    padding: 0 25px;
+  }
+  
+  .gift_section .detail-box p {
+    margin-top: 5px;
+  }
+  
+  .gift_section .detail-box .btn-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 35px -5px 0;
+  }
+  
+  .gift_section .detail-box .btn-box a {
+    width: 165px;
+    text-align: center;
+    margin: 5px;
+  }
+  
+  .gift_section .detail-box .btn-box .btn1 {
+    display: inline-block;
+    padding: 10px 0;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  
+  .gift_section .detail-box .btn-box .btn1:hover {
+    background-color: transparent;
+    color: #ffffff;
+  }
+  
+  .gift_section .detail-box .btn-box .btn2 {
+    display: inline-block;
+    padding: 10px 0;
+    background-color: #9242dd;
+    color: #ffffff;
+    border: 1px solid #9242dd;
+    border-radius: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  
+  .gift_section .detail-box .btn-box .btn2:hover {
+    background-color: transparent;
+    color: #9242dd;
+  }
+  
+  .merch-blurb {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 60px; /* Increased top padding */
+    margin-bottom: -5px; /* Pulls up to remove gap */
+}
+
+.merch-blurb img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px; /* Sharper corners */
+    clip-path: inset(0px 0px 10% 0px); /* Crops bottom slightly */
+    display: block; /* Ensures no extra space below the image */
 }
