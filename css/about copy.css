@@ -1,41 +1,31 @@
 /* General Layout */
 .about {
     text-align: center;
-    padding: 40px;
+    padding: 20px;
 }
 
-/* Group Picture */
-.group-picture-container {
-    margin-bottom: 40px;
-}
-
-.group-picture {
-    width: 100%;
-    max-width: 900px;
-    border-radius: 15px;
-}
-
-/* Blurb Styling */
-.band-blurb {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 40px;
-    font-weight: 300;
-}
 
 /* Member Section */
 .profile-section {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Ensures two columns */
+    grid-template-rows: repeat(2, auto); /* Ensures two rows */
+    gap: 15px;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 100%; /* Allows it to take the full available width */
+    max-width: 600px; /* Controls overall size */
+    margin: auto; /* Centers the section */
 }
+
+
 
 /* Member Card Styling */
 .member {
     position: relative;
-    width: 250px;
-    height: 300px;
+    width: 90%;  /* Make the width responsive, based on the screen size */
+    height: auto;
+    max-width: 250px; /* Set a max-width to ensure members don't get too large */
     cursor: pointer;
     overflow: hidden;
     border-radius: 15px;
@@ -45,6 +35,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* Flexibility based on screen width */
+    width: 100%;
 }
 
 /* Image Container */
@@ -149,20 +141,31 @@
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+@media (max-width: 600px) {
+    .profile-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Always 2 members per row */
+        grid-template-rows: repeat(2, auto); /* Always 2 rows */
+    }
+}
+
 .merch-blurb {
     width: 100%;
     max-width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 0px; /* Increased top padding */
-    margin-bottom: -5px; /* Pulls up to remove gap */
+    margin: 0; /* Remove any margin */
+    padding: 70; /* Remove any padding */
+    position: relative; /* Adjust positioning if needed */
 }
 
+/* If you want to ensure the blurb starts at the very top of the viewport */
 .merch-blurb img {
-    width: 100%;
+    width: 120%;
     height: auto;
     object-fit: cover;
-    border-radius: 5px; 
+    border-radius: 5px;
     clip-path: inset(0px 0px 10% 0px); /* Crops bottom slightly */
-    display: block; 
+    display: block;
 }
