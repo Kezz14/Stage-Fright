@@ -28,6 +28,14 @@
     padding-right: 10px; /* Add extra padding at the bottom */
 }
 
+@media (min-width: 1100px) {
+    .profile-section {
+        display: flex;
+        flex-direction: row;
+        max-width: 1000px;
+        gap: 25px;
+    }
+}
 
 
 /* Member Card Styling */
