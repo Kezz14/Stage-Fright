@@ -8,7 +8,7 @@ body {
 
 /* Discography Section */
 .discography {
-    padding: 10px 20px;
+    padding: 0;
     text-align: center;
 }
 
@@ -293,3 +293,19 @@ body {
     align-items: center;
 }
 
+
+
+/* Video Settings */
+.merch-blurb video {
+   
+    display: block;
+    pointer-events: none; /* Prevents accidental clicks */
+}
+
+/* Ensure Mobile Works Smoothly */
+@media (max-width: 768px) {
+    .merch-blurb video {
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
