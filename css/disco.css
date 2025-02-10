@@ -27,7 +27,7 @@ body {
     place-content: center; /* Prevents stretching */
     max-width: 90vw; /* Prevents items from going off-screen */
     margin: 0 auto;
-    transition: all 0.3s ease-in-out; /* Smooth transitions */
+   
 }
 
 /* Album Item - Ensures Proper Scaling */
@@ -39,47 +39,13 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, width 0.3s ease;
+  
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Fix Image Cropping */
-.album-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Ensures full image is visible */
-}
 
-/* Responsive Adjustments */
-@media (min-width: 1200px) {
-    .album-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 per row */
-        max-width: 80vw;
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1199px) {
-    .album-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 per row */
-        max-width: 85vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .album-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 per row */
-        max-width: 90vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .album-grid {
-        grid-template-columns: 1fr; /* 1 per row */
-        max-width: 95vw;
-    }
-}
 
 .album-item:hover .album-cover img {
     opacity: 0.8;
@@ -199,42 +165,7 @@ body {
     display: block; /* Show modal when active */
 }
 
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-    .album-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
 
-    .album-button, .show-songs-button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-}
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically adjusts grid items */
-    gap: 20px; /* Added gap between items */
-    justify-items: center; /* Centers items within their grid cells */
-}
-@media (max-width: 768px) {
-    .album-grid {
-        grid-template-columns: 1fr 1fr; /* 2 items per row */
-        gap: 15px; /* Reduced gap */
-    }
-
-    .album-item {
-        height: 250px; /* Adjusted height for smaller screens */
-    }
-}
-@media (max-width: 480px) {
-    .album-grid {
-        grid-template-columns: 1fr; /* 1 item per row */
-    }
-
-    .album-item {
-        height: 200px; /* Reduced height for very small screens */
-    }
-}
 body {
     transition: background-color 0.2s ease; /* Smooth transition for the background color */
 }
@@ -297,19 +228,7 @@ body {
 
 
 
-@media (max-width: 768px) {
-    .album-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 per row */
-        max-width: 90%;
-    }
-}
 
-@media (max-width: 480px) {
-    .album-grid {
-        grid-template-columns: 1fr; /* 1 per row */
-        max-width: 95%;
-    }
-}
 /* Centering & Responsive Grid */
 .album-grid {
     display: grid;
@@ -319,23 +238,10 @@ body {
     place-content: center; /* Prevents stretching */
     max-width: 90vw; /* Prevents items from going off-screen */
     margin: 0 auto;
-    transition: all 0.3s ease-in-out; /* Smooth transitions */
+   
 }
 
 /* Album Item - Ensures Proper Scaling */
-.album-item {
-    width: 100%; /* Fully use grid cell */
-    max-width: 300px; /* Prevents oversized items */
-    aspect-ratio: 1 / 1; /* Keeps it square */
-    background-color: black
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, width 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* Fix Image Cropping */
 .album-cover img {
@@ -345,16 +251,16 @@ body {
 }
 
 /* Responsive Adjustments */
-@media (min-width: 351px) {
+@media (min-width: 501px) {
     .album-grid {
         grid-template-columns: repeat(4, 1fr); /* 4 per row */
-        max-width: 80vw;
+        max-width: 800vw;
     }
 }
 
 
 
-@media (max-width: 350px) {
+@media (max-width: 500px) {
     .album-grid {
         grid-template-columns: 1fr; /* 1 per row */
         max-width: 95vw;
