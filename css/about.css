@@ -12,30 +12,29 @@
 }
 
 
-/* Member Section */
+/* Default: Items in one row (for larger screens) */
 .profile-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Ensures two columns */
-    grid-template-rows: repeat(2, auto); /* Ensures two rows */
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 600px; /* Controls overall size */
-    margin: auto; /* Centers the section */
-    padding-bottom: 40px; /* Add extra padding at the bottom */
-    padding-left: 10px; /* Add extra padding at the bottom */
-    padding-right: 10px; /* Add extra padding at the bottom */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Makes them in one row */
+    gap: 15px; /* Adds spacing between items */
+    justify-items: center;
+    width: 100%; /* Ensures it takes full width */
+    margin: auto; /* Centers it */
+    padding: 20px; /* Adds spacing */
 }
 
-@media (min-width: 1100px) {
+/* When screen width is 600px or smaller, switch to a 2x2 grid */
+@media (max-width: 600px) {
     .profile-section {
-        display: flex;
-        flex-direction: row;
-        max-width: 1000px;
-        gap: 25px;
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        grid-template-rows: auto auto; /* Ensures 2 rows */
+        gap: 10px; /* Reduce gap slightly */
     }
 }
+
+
+
+
 
 
 /* Member Card Styling */
@@ -166,13 +165,22 @@
     cursor: pointer;
 }
 
+/* Default: Items in one row (for larger screens) */
+.profile-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Keeps all items in one row */
+    gap: 15px; /* Adds spacing between items */
+    justify-items: center;
+}
+
+/* When screen width is 600px or smaller, switch to a 2x2 grid */
 @media (max-width: 600px) {
     .profile-section {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Always 2 members per row */
-        grid-template-rows: repeat(2, auto); /* Always 2 rows */
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        grid-template-rows: auto auto; /* Ensures 2 rows */
     }
 }
+
 
 .merch-blurb {
     width: 100%;

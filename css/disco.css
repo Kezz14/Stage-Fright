@@ -229,3 +229,55 @@ body {
     clip-path: inset(10px 0px 30% 0px); /* Crops bottom slightly */
     display: block;
 }
+/* Centering & Responsive Grid */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-adjust columns */
+    gap: 20px;
+    justify-content: center; /* Keep centered */
+    max-width: 90%; /* Prevent excessive stretching */
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Album Item - Ensures Sizing Scales Smoothly */
+.album-item {
+    width: 100%; /* Fully use grid cell */
+    max-width: 300px; /* Prevent items from getting too large */
+    aspect-ratio: 1 / 1; /* Maintains square shape */
+    background-color: black;
+    border-radius: 15px;
+    
+    
+    transition: transform 0.3s ease, width 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.album-item:hover {
+    transform: scale(1.05);
+}
+
+/* Album Covers - No More Cropping */
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+@media (max-width: 768px) {
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row */
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .album-grid {
+        grid-template-columns: 1fr; /* 1 per row */
+        max-width: 95%;
+    }
+}
