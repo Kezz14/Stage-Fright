@@ -14,7 +14,7 @@ body {
 .pg-name {
     font-size: 2.5rem;
     color: #ff6a3d;
-    margin-bottom: 10px; /* Reduce bottom margin */
+    margin-bottom: 10px; 
     padding-top: 10px; /* Push it higher */
 }
 
@@ -23,9 +23,9 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-adjusts columns */
     gap: 20px;
-    justify-content: center; /* Keep centered */
-    place-content: center; /* Prevents stretching */
-    max-width: 90vw; /* Prevents items from going off-screen */
+    justify-content: center; 
+    place-content: center; 
+    max-width: 90vw; 
     margin: 0 auto;
    
 }
@@ -33,7 +33,7 @@ body {
 /* Album Item - Ensures Proper Scaling */
 .album-item {
     width: 100%; /* Fully use grid cell */
-    max-width: 300px; /* Prevents oversized items */
+    max-width: 300px; 
     aspect-ratio: 1 / 1; /* Keeps it square */
     background-color: white;
     border-radius: 15px;
@@ -118,18 +118,18 @@ body {
     border-radius: 15px;
     width: 80%;
     max-width: 500px;
-    color: white; /* White text */
+    color: rgb(255, 254, 254); /* White text */
     position: relative; /* So we can position the close button */
 }
 
 /* Close Button */
-.close-btn {
-    color: #bbb; /* Light gray for the close button */
+.close-buttn {
+    color: #bbbbbb; /* Light gray for the close button */
     font-size: 32px;
     font-weight: bold;
     position: absolute;
     top: 10px;
-    right: 25px; /* Move the button further right */
+    right: 20px; /* Move the button further right */
     cursor: pointer;
     transition: color 0.3s ease;
     background: none; /* Remove any background */
@@ -138,7 +138,7 @@ body {
     text-shadow: none; /* Remove any text shadow */
 }
 
-.close-btn:hover {
+.close-buttn:hover {
     color: white; /* Change to white on hover */
 }
 
@@ -171,7 +171,7 @@ body {
 }
 
 
-/* For the video element */
+
 
 /* Centering & Responsive Grid */
 .album-grid {
