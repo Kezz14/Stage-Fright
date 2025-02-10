@@ -1407,6 +1407,6 @@ footer {
     height: auto;
     object-fit: cover;
     border-radius: 5px; /* Sharper corners */
-    clip-path: inset(0px 0px 10% 0px); /* Crops bottom slightly */
+     /* Crops bottom slightly */
     display: block; /* Ensures no extra space below the image */
 }
