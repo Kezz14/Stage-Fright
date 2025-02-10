@@ -111,7 +111,8 @@
                     <h3>Echoes Of The Stage </h3>
                     <p>Released: 2025</p>
                     <p>Genre: Rock, Alternative</p>
-                    <button class="album-button" onclick="playAudio('audio1')">Listen Now</button>
+                    <button class="album-button" onclick="toggleAudio('audio1', this)">Listen Now</button>
+
 
                     <button class="show-songs-button" onclick="openSongModal('song-modal1')">Show Songs</button>
                 </div>
@@ -128,15 +129,16 @@
             <div class="album-cover">
                 <img src="assets/images/merch/RiseFromTheAshesAlbum.jpeg" alt="Album 2">
                 <div class="album-details">
-                    <h3>Into the Spotlight</h3>
+                    <h3>Rise from the ashes</h3>
                     <p>Released: 2023</p>
-                    <p>Genre: Pop, Rock</p>
-                    <button class="album-button" onclick="playAudio('audio2')">Listen Now</button>
+                    <p>Genre: Punk, Rock</p>
+                    <button class="album-button" onclick="toggleAudio('audio2', this)">Listen Now</button>
+
                     <button class="show-songs-button" onclick="openSongModal('song-modal2')">Show Songs</button>
                 </div>
             </div>
             <audio id="audio2">
-                <source src="assets/audio/into-the-spotlight.mp3" type="audio/mp3">
+                <source src="assets/Rise from the Ashes (1).mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
         </div>
@@ -144,17 +146,17 @@
         <!-- Album 3 -->
         <div class="album-item">
             <div class="album-cover">
-                <img src="assets/images/merch/EchoesOfTheStageAlbum.webp" alt="Album 3">
+                <img src="assets/images/merch/LoveFright.png" alt="Album 3">
                 <div class="album-details">
-                    <h3>Reverb</h3>
+                    <h3>Love Fright</h3>
                     <p>Released: 2021</p>
                     <p>Genre: Indie Rock</p>
-                    <button class="album-button" onclick="playAudio('audio3')">Listen Now</button>
+                    <button class="album-button" onclick="toggleAudio('audio3', this)">Listen Now</button>
                     <button class="show-songs-button" onclick="openSongModal('song-modal3')">Show Songs</button>
                 </div>
             </div>
             <audio id="audio3">
-                <source src="assets/audio/reverb.mp3" type="audio/mp3">
+                <source src="assets/Heartbeat.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
         </div>
@@ -166,13 +168,13 @@
                 <div class="album-details">
                     <h3>Stage Fright</h3>
                     <p>Released: 2019</p>
-                    <p>Genre: Acoustic, Indie</p>
-                    <button class="album-button" onclick="playAudio('audio4')">Listen Now</button>
+                    <p>Genre: Acoustic, Rock</p>
+                    <button class="album-button" onclick="toggleAudio('audio4', this)">Listen Now</button>
                     <button class="show-songs-button" onclick="openSongModal('song-modal4')">Show Songs</button>
                 </div>
             </div>
             <audio id="audio4">
-                <source src="assets/audio/unplugged.mp3" type="audio/mp3">
+                <source src="assets/Sound Waves.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
         </div>
@@ -227,7 +229,7 @@
         <span class="close-btn" onclick="closeSongModal('song-modal4')">&times;</span>
         <h3>Unplugged - Tracklist</h3>
         <ul>
-            <li>Track 1: Heartbeat</li>
+            <li>Track 1: Sound Waves</li>
             <li>Track 2: Quiet Moments</li>
             <li>Track 3: Serenade</li>
             <li>Track 4: Into the Wild</li>
@@ -241,7 +243,8 @@
     <p>&copy; 2025 Stage Fright. All rights reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="disco.js"></script><script src="script.js"></script>
+
 
 </body>
 </html>

@@ -520,3 +520,49 @@ function playAudio(audioId) {
         audioElement.play();
     }
 }
+// Function to toggle play/pause for audio
+function toggleAudio(audioId, button) {
+    let audio = document.getElementById(audioId);
+
+    if (audio.paused) {
+        audio.play();
+        button.textContent = "Pause Music";
+    } else {
+        audio.pause();
+        button.textContent = "Listen Now";
+    }
+}
+function playAudio(audioId) {
+    var audioElement = document.getElementById(audioId);
+    
+    // Pause all other audio elements before playing the new one
+    const allAudios = document.querySelectorAll("audio");
+    allAudios.forEach(audio => audio.pause());
+    
+    // Play the selected audio
+    if (audioElement) {
+        audioElement.play();
+    }
+}
+function toggleAudio(audioId, button) {
+    // Get the selected audio element
+    let audio = document.getElementById(audioId);
+
+    // Pause all other audio elements before playing the selected one
+    const allAudios = document.querySelectorAll("audio");
+    allAudios.forEach(aud => {
+        if (aud !== audio) {
+            aud.pause(); // Pause any currently playing audio
+            aud.currentTime = 0; // Reset the audio to the beginning
+        }
+    });
+
+    // Play or pause the selected audio
+    if (audio.paused) {
+        audio.play();
+        button.textContent = "Pause Music"; // Change button text to 'Pause'
+    } else {
+        audio.pause();
+        button.textContent = "Listen Now"; // Change button text to 'Listen Now'
+    }
+}
