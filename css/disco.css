@@ -11,11 +11,11 @@ body {
     padding: 0;
     text-align: center;
 }
-
 .pg-name {
     font-size: 2.5rem;
     color: #ff6a3d;
-    margin-bottom: 30px;
+    margin-bottom: 10px; /* Reduce bottom margin */
+    padding-top: 10px; /* Push it higher */
 }
 
 /* Centering & Responsive Grid */
@@ -169,16 +169,7 @@ body {
 body {
     transition: background-color 0.2s ease; /* Smooth transition for the background color */
 }
-.merch-blurb {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0; /* Remove any margin */
-    padding: 20; /* Remove any padding */
-    position: relative; /* Adjust positioning if needed */
-    overflow: hidden;
-}
+
 
 /* For the video element */
 .merch-blurb video {
@@ -295,17 +286,6 @@ body {
 
 
 
-/* Video Settings */
-.merch-blurb video {
-   
-    display: block;
-    pointer-events: none; /* Prevents accidental clicks */
-}
 
-/* Ensure Mobile Works Smoothly */
-@media (max-width: 768px) {
-    .merch-blurb video {
-        max-width: 100%;
-        object-fit: cover;
-    }
-}
+
+
