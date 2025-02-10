@@ -1,0 +1,55 @@
+/* About */
+.about > .pg-name {
+    margin-top: 90px;
+    color: white;
+}
+
+#about {
+    margin: 30px;
+}
+#band-description{
+    background-color: rgba(255, 61, 61, 0.7);
+    margin: 20px 0px;
+    padding: 10px 13px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../assets/images/bandDesc.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#band-description p {
+    padding: 50px;
+    color:white;
+}
+
+#band-members {
+    padding-top: 10px;
+}
+
+.item > p {
+    padding: 6px 0px;
+}
+
+.item > h3 {
+    padding-top: 10px;
+}
+
+.role {
+    color: rgba(80, 80, 80, 0.836);
+    font-size: 14px;
+}
+
+.item .about-button{
+    background-color: #e7e7e7; 
+    color: black;
+}
+
+.item .about-button:hover {
+    background-color: #b0b0b0;
+}
+
+#band-met {
+    margin: 20px;
+}
+

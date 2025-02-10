@@ -465,8 +465,9 @@ html {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
-  background: linear-gradient(45deg, #111, #222);
-  color:#333;
+  /* background: linear-gradient(45deg, #111, #222); */
+  background-color: #000;
+  /* color:#333; */
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -560,7 +561,8 @@ button#submit-button:active {
 body, html {
     font-family: 'Montserrat', Arial, sans-serif;
     height: 100%;
-    background: linear-gradient(45deg, #111, #222);
+    /* background: linear-gradient(45deg, #111, #222); */
+    background-color: #000;
     color: #fff;
     margin: 0;
     padding: 0;

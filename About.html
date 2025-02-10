@@ -7,9 +7,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="./css/style.css"/>
-    <link rel="stylesheet" href="./css/about copy.css"/>
+    <link rel="stylesheet" href="./css/about.css"/>
 </head>
 <body>
+    
+    <!-- Accessibility Bubble -->
+    <div
+        class="accessibility-bubble"
+        onclick="toggleAccessibilityToolbar()"
+        aria-label="Open Accessibility Toolbar"
+        role="button"
+        tabindex="0"
+    >
+    <i class="fas fa-universal-access"></i>
+    </div>
+     
+     <!-- Accessibility Toolbar -->
+    <div
+        class="accessibility-toolbar"
+        id="accessibilityToolbar"
+        aria-label="Accessibility Toolbar"
+        style="display: none;"
+    >
+        <div class="toolbar-header">
+            <h3>Accessibility Tools</h3>
+            <button class="close-button" onclick="toggleAccessibilityToolbar()" aria-label="Close Accessibility Toolbar">
+            </button>
+        </div>
+     
+        <div class="toolbar-options">
+            <!-- Text Resizing -->
+            <div>
+                <label for="textResize">Text Size:</label>
+                <div class="text-resize-wrapper">
+                <input
+                    type="range"
+                    id="textResize"
+                    min="1"
+                    max="5"
+                    step="1"
+                    value="3"
+                    onchange="adjustTextSize(this.value)"
+                    aria-label="Adjust Text Size"
+                />
+               <span id="textResizeLabel">Normal</span>
+                </div>
+            </div>
+     
+            <!-- High Contrast Mode -->
+            <div>
+                <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast Mode">
+                    High Contrast
+                </button>
+            </div>
+     
+            <!-- Reset Settings -->
+            <div>
+                <button onclick="resetAccessibility()" aria-label="Reset Accessibility Settings">
+                    Reset
+                </button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Navbar -->
     <div class="navbar">
@@ -24,7 +84,7 @@
             <a href="./Merch.html">Merch</a>
             <a href="./disco.html">Music</a>
             <a href="./About.html">About</a>
-            <a href=#contact-container>Contact</a>
+            <a href="./index.html#contact-container">Contact</a>
         </div>
     </div>
 
@@ -35,49 +95,49 @@
     <img src="/assets/aboutCanva.png" alt="Aesthetic Merch Photo">
   </div>
 
-        <h1 class="pg-name">     Meet the Band</h1>
+        <h1 class="pg-name">Meet the Band</h1>
         <div class="profile-section">
             <!-- Alex Member -->
             <div class="member" onclick="showMemberDetails('alex')">
                 <div class="image-container">
-                    <img src="assets/images/members/bassist.png" alt="Alex" class="member-img">
+                    <img src="./assets/images/members/singer.jpg" alt="Alex Turner the Lead Vocal" class="member-img">
                     <div class="overlay">
-                        <h3>Alex</h3>
-                        <p>Bassist</p>
-                        <button class="about-button">Learn More</button>
+                        <h3>Alex Turner</h3>
+                        <p>Lead Vocal</p>
+                        <a href="./member-profiles/Alex.html"><button class="about-button">Learn More</button></a>
                     </div>
                 </div>
             </div>
             <!-- Jamie Member -->
             <div class="member" onclick="showMemberDetails('jamie')">
                 <div class="image-container">
-                    <img src="assets/images/members/drummer.png" alt="Jamie" class="member-img">
+                    <img src="./assets/images/members/guitarist.png" alt="Jamie Smith the guitarist" class="member-img">
                     <div class="overlay">
-                        <h3>Jamie</h3>
-                        <p>Drummer</p>
-                        <button class="about-button">Learn More</button>
+                        <h3>Jamie Smith</h3>
+                        <p>Guitarist</p>
+                        <a href="./member-profiles/Jamie.html"><button class="about-button">Learn More</button></a>
                     </div>
                 </div>
             </div>
             <!-- Taylor Member -->
             <div class="member" onclick="showMemberDetails('taylor')">
                 <div class="image-container">
-                    <img src="assets/images/members/guitarist.png" alt="Taylor" class="member-img">
+                    <img src="./assets/images/members/bassist.png" alt="Taylor Green the Bassist" class="member-img">
                     <div class="overlay">
-                        <h3>Taylor</h3>
-                        <p>Guitarist</p>
-                        <button class="about-button">Learn More</button>
+                        <h3>Taylor Green</h3>
+                        <p>Bassist</p>
+                        <a href="./member-profiles/Taylor.html"><button class="about-button">Learn More</button></a>
                     </div>
                 </div>
             </div>
             <!-- Morgan Member -->
             <div class="member" onclick="showMemberDetails('morgan')">
                 <div class="image-container">
-                    <img src="assets/images/members/guitarist.png" alt="Morgan" class="member-img">
+                    <img src="./assets/images/members/drummer.png" alt="Morgan Lee the Drummer" class="member-img">
                     <div class="overlay">
                         <h3>Morgan</h3>
                         <p>Lead Guitarist</p>
-                        <button class="about-button">Learn More</button>
+                        <a href="./member-profiles/Morgan.html"><button class="about-button">Learn More</button></a>
                     </div>
                 </div>
             </div>
