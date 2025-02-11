@@ -160,4 +160,22 @@ body {
 .song-modal li {
     margin: 5px 0;
     font-size: 1.2rem; /* Slightly larger font for song names */
+}.merch-blurb {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0; /* Remove any margin */
+    padding: 70; /* Remove any padding */
+    position: relative; /* Adjust positioning if needed */
+}
+
+/* If you want to ensure the blurb starts at the very top of the viewport */
+.merch-blurb img {
+    width: 120%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    clip-path: inset(0px 0px 10% 0px); /* Crops bottom slightly */
+    display: block;
 }
