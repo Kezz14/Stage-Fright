@@ -5,12 +5,14 @@ let isPlaying = false;
 
 // Function to open the song modal
 function openSongModal(modalId) {
+    console.log("Opening modal:", modalId); // Debugging
     const modal = document.getElementById(modalId);
     modal.classList.add('active'); // Add 'active' class to display modal
 }
 
 // Function to close the song modal
 function closeSongModal(modalId) {
+    console.log("Closing modal:", modalId); // Debugging
     const modal = document.getElementById(modalId);
     modal.classList.remove('active'); // Remove 'active' class to hide modal
 }
@@ -27,6 +29,7 @@ window.onclick = function(event) {
 
 // Function to toggle audio (Play or Pause) and manage background change
 function toggleAudio(audioId, button) {
+    console.log("Toggling audio:", audioId); // Debugging
     let audio = document.getElementById(audioId);
 
     // Stop all currently playing audio elements
